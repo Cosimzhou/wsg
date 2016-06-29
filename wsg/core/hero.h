@@ -197,7 +197,6 @@ typedef struct {
     country_id_t country;
     skill_id_t skills[16];
     const char *fame;
-    const char *skillnames;
     const char *nick;
     package_mark_t package;
 } hero_model_t;

@@ -222,6 +222,15 @@ typedef enum {
 
     JN_XINGWU,          //SP021      大乔&小乔-星舞
     JN_YANLUO,          //SP021      大乔&小乔-雁落
+    
+    
+    
+    
+    JN_EQUIP = 0x8000,
+
+    JN_BAGUAZHEN,
+    JN_RENWANGDUN,
+    JN_ZHUGELIANNU,
 } skill_id_t;
 
 
@@ -231,13 +240,13 @@ typedef enum {
     JNL_LOCKED          = (1<<2),
     JNL_LIMITED         = (1<<3),
     JNL_WAKING          = (1<<4),
-
 } skill_type_mask_t;
 
 typedef enum {
     JNT_SELF,
     JNT_OTHER,
     JNT_ALL,
+    JNT_SIB,
     JNT_MASTER,
 } skill_object_type_t;
 

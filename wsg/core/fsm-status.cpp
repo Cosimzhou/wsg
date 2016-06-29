@@ -12,8 +12,6 @@ WSG_BEGIN
 //#error Oh! no! I don't want this
 //#warning Oh! no! I don't want this
 
-
-
 /*******************************************************************************
  *
  *  macro utilities
@@ -33,11 +31,8 @@ WSG_BEGIN
 
 
 #define ARR_PHASE(x)    FSM::x,FSM::x##_after
-
 #define FSM_NEW(p)      FSM *fsm = new FSM(fsm_##p##_courses, self->_game)
 #define FSM_SEND()      self->_game->perform(fsm)
-
-
 #define SCRS(c)         fsm_##c##_courses
 #define DCRS(c,...)                                                             \
 const fsm_status_t SCRS(c)[] = {__VA_ARGS__, NULL_PHASE}
@@ -94,7 +89,7 @@ DCRS(blood_change,
 DCRS(card_uplimit, ARR_PHASE(card_uplimit));
 
 DCRS(discard, ARR_PHASE(discard));
-
+#undef DCRS
 
 
 
@@ -244,7 +239,7 @@ int FSM::card_dotnum(FSM *self) {
 #pragma mark - distance
 int FSM::distance_calc(FSM *self) {
     SHOW_ME();
-    int i, p, plrcnt = self->_game->players.size();
+    int i, p, plrcnt = (int)self->_game->players.size();
     int d1 = 0, d2 = 0;
 
     if (self->_obj == self->param[0])
