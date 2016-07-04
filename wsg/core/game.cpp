@@ -9,6 +9,7 @@
 #include "game.hpp"
 
 #include <stdlib.h>
+#include <iostream>
 //#include <vector>
 #include <string>
 #include <set>
@@ -30,14 +31,14 @@ void Game::assign_hero() {
     vector<vector<string> > psh;
     set<int> sdidx;
 
-    int idx, hnpp = pvec->size()/players.size();
+    int idx, hnpp = (int)pvec->size()/players.size();
     if (hnpp < 3)
         exit(0);
     if (hnpp > 7) hnpp = 7;
 
     for(int i = 0; i < this->players.size(); ++i) {
         vector<string> ppna;
-        for (int j = 0; j < 5; ++j) {
+        for (int j = 0; j < this->players[i]->getSelectableHeroesNum(); ++j) {
             idx = rand() % pvec->size();
             while(sdidx.find(idx) != sdidx.end())
                 idx = rand() % pvec->size();
@@ -47,6 +48,13 @@ void Game::assign_hero() {
     }
 
     delete pvec;
+    
+    for (auto i = psh.begin(); i != psh.end(); ++i) {
+        for (auto j = i->begin(); j != i->end(); ++j) {
+            std::cout<<*j<<"  ";
+        }
+        std::cout<<std::endl;
+    }
 }
 
 void Game::perform(FSM *pfsm){
@@ -65,7 +73,8 @@ void Game::play() {
     perform(fsm);
 }
 
-bool Game::hintTriggerSkill() {
+bool Game::hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const {
+    std::cout<<"will you act skill "<<psk->name<<"?"<<std::endl;
     return false;
 }
 

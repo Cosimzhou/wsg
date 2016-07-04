@@ -14,33 +14,90 @@
 
 WSG_BEGIN
 
+#define WSG_USING_CHAR_AS_ENUM
 
 #define POKER(h, d)     (h+(d<<2))
 
-typedef int card_id;
+typedef int card_id_t;
 
+#ifdef WSG_USING_CHAR_AS_ENUM
+typedef unsigned char card_pattern_t;
+
+#   define CP_DIAMOND       ((card_pattern_t)0)
+#   define CP_CLUB          ((card_pattern_t)1)
+#   define CP_HEART         ((card_pattern_t)2)
+#   define CP_SAPDE         ((card_pattern_t)3)
+
+typedef unsigned char card_point_t;
+
+#   define CP_ACE           ((card_point_t)0)
+#   define CP_2             ((card_point_t)1)
+#   define CP_3             ((card_point_t)2)
+#   define CP_4             ((card_point_t)3)
+#   define CP_5             ((card_point_t)4)
+#   define CP_6             ((card_point_t)5)
+#   define CP_7             ((card_point_t)6)
+#   define CP_8             ((card_point_t)7)
+#   define CP_9             ((card_point_t)8)
+#   define CP_10            ((card_point_t)9)
+#   define CP_JACK          ((card_point_t)10)
+#   define CP_QUEEN         ((card_point_t)11)
+#   define CP_KING          ((card_point_t)12)
+
+
+typedef unsigned char property_type_t;
+
+#   define PT_NONE          ((property_type_t)0)
+#   define PT_LIGHTNING     ((property_type_t)1)
+#   define PT_FIRE          ((property_type_t)2)
+
+
+typedef unsigned char card_type_t;
+
+#   define CT_NONE          ((card_type_t)0)
+#   define CT_BASIC         ((card_type_t)1)
+#   define CT_EQUIPMENT     ((card_type_t)2)
+#   define CT_SMART         ((card_type_t)3)
+
+
+#else //defined(WSG_USING_CHAR_AS_ENUM)
 typedef enum {
-    HS_DIAMOND,
-    HS_CLUB,
-    HS_HEART,
-    HS_SAPDE,
+    CP_DIAMOND,
+    CP_CLUB,
+    CP_HEART,
+    CP_SAPDE,
 } card_pattern_t;
 
 typedef enum {
-    DS_ACE,
-    DS_2,
-    DS_3,
-    DS_4,
-    DS_5,
-    DS_6,
-    DS_7,
-    DS_8,
-    DS_9,
-    DS_10,
-    DS_JACK,
-    DS_QUEEN,
-    DS_KING,
+    CP_ACE,
+    CP_2,
+    CP_3,
+    CP_4,
+    CP_5,
+    CP_6,
+    CP_7,
+    CP_8,
+    CP_9,
+    CP_10,
+    CP_JACK,
+    CP_QUEEN,
+    CP_KING,
 } card_point_t;
+
+typedef enum {
+    PT_NONE,
+    PT_LIGHTNING,
+    PT_FIRE,
+} property_type_t;
+
+typedef enum {
+    CT_NONE,
+    CT_BASIC,
+    CT_EQUIPMENT,
+    CT_SMART,
+} card_type_t;
+
+#endif //defined(WSG_USING_CHAR_AS_ENUM)
 
 typedef enum {
     KP_NONE =                0x0000,  //空，非法牌
@@ -150,15 +207,15 @@ typedef struct {
 
     
     
-class CardHeap: std::list<card_id> {
+class CardHeap: std::list<card_id_t> {
 public:
     
-    CardHeap& operator<<(card_id cardid) {
+    CardHeap& operator<<(card_id_t cardid) {
         this->push_back(cardid);
         return *this;
     }
     
-    CardHeap& operator>>(card_id &cardid) {
+    CardHeap& operator>>(card_id_t &cardid) {
         if (this->empty())
             cardid = 0;
         else {
@@ -174,9 +231,9 @@ public:
 
 class Card {
 public:
-    Card(card_id);
+    Card(card_id_t);
     
-//    static void cardinfo(card_id, card_instance_info_t &cii);
+//    static void cardinfo(card_id_t, card_instance_info_t &cii);
 
 };
 
@@ -190,11 +247,11 @@ typedef std::list<Card*> Cards;
 //extern errcode
 //sgs_card_heap_init_with_cards(card_heap *card_heap, int type);
 //extern errcode
-//sgs_card_heap_pop_card(card_heap *card_heap, card_id *card);
+//sgs_card_heap_pop_card(card_heap *card_heap, card_id_t *card);
 //extern errcode
-//sgs_card_heap_push_card(card_heap *card_heap, card_id card);
+//sgs_card_heap_push_card(card_heap *card_heap, card_id_t card);
 //extern errcode
-//sgs_card_heap_tail_card(card_heap *card_heap, card_id card);
+//sgs_card_heap_tail_card(card_heap *card_heap, card_id_t card);
 //extern errcode
 //sgs_card_heap_copy(card_heap *card_heap, const card_heap *source_heap);
 //extern errcode
@@ -205,10 +262,10 @@ typedef std::list<Card*> Cards;
 
 
 //extern errcode
-//sgs_card_get_info_by_id(card_id idx, card_instance_info_t *info);
+//sgs_card_get_info_by_id(card_id_t idx, card_instance_info_t *info);
 //
 //extern card_function_id
-//sgs_card_get_function_by_id(card_id idx);
+//sgs_card_get_function_by_id(card_id_t idx);
 
     
 WSG_END;

@@ -60,6 +60,9 @@ int main(int argc, const char * argv[]) {
 //    cout<<k<<endl;
 //
 //    return 0;
+    
+    
+    srand((unsigned int)clock());
 
 /*****************************************/
 //    add JNL_LOCKED to skill_entries
@@ -67,14 +70,17 @@ int main(int argc, const char * argv[]) {
 //    implement run func
 
     Game game = Game();
+    game.sr.assignPlayers(8);
+    
     for(int i = 0; i < 8; ++i)
         game.players.push_back(new Player());
 
-    game.sr.assignPlayers(8);
+    game.assign_hero();
+    
     game.sr.install(JN_FEIYING, 0);
     game.sr.install(JN_MASHU, 3);
     
-    game.play();
+//    game.play();
 
 
     return 0;

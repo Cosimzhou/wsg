@@ -51,11 +51,11 @@ public:
     CardHeap discard_heap;
 
 
-    bool hintTriggerSkill();
+    bool hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const;
 
     int getDistanceBetween(player_index_t from, player_index_t to);
-    card_pattern_t getCardPattern(player_index_t obj, card_id card);
-    card_point_t getCardPointNum(player_index_t obj, card_id card);
+    card_pattern_t getCardPattern(player_index_t obj, card_id_t card);
+    card_point_t getCardPointNum(player_index_t obj, card_id_t card);
 
     void changePlayerBlood(player_index_t obj, int delta);
 

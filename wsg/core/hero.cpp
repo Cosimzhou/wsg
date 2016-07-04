@@ -136,7 +136,7 @@ const hero_model_t wsg_hero_entries[] = {
 
 
     // SP
-{SP001,},
+//{SP001,},
 {SP002, "貂蝉", false, 3, SL_QUN, {JN_LIJIAN, JN_BIYUE}, "绝世的舞姬", "", FX_DESKTOP},
 {SP003, "公孙瓒", true, 4, SL_QUN, {JN_YICONG,}, "白马将军", "白马义从", FX_DESKTOP},
 {SP004, "袁术", true, 4, SL_QUN, {JN_YONGSI, JN_WEIDI}, "仲家帝", "四世三公", FX_DESKTOP},

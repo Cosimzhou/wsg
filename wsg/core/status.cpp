@@ -61,7 +61,7 @@ void FSM::triggerSkill(const fsm_status_t st) {
     for (Skills::iterator iter=sks->begin(); iter!=sks->end(); ++iter) {
         psk = (*iter)->entry;
         if (psk->judge_run(*_game, st)) {
-            if (SKILL_IS_LOCKED(psk) || _game->hintTriggerSkill()) //hint
+            if (SKILL_IS_LOCKED(psk) || _game->hintTriggerSkill(_obj, psk)) //hint
                 psk->run(*_game);
         }
     }

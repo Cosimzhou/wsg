@@ -24,3 +24,11 @@
 Player::Player(): alive(true) {
 
 }
+
+void Player::selectHeroes(int i) {
+    
+}
+
+int Player::getSelectableHeroesNum() {
+    return 5;
+}

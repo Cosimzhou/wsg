@@ -112,7 +112,7 @@ int Game::getDistanceBetween(player_index_t from, player_index_t to) {
     return fsm->iRet;
 }
 
-card_pattern_t Game::getCardPattern(player_index_t obj, card_id card) {
+card_pattern_t Game::getCardPattern(player_index_t obj, card_id_t card) {
     if (obj<0) return (card_pattern_t)0;
 
     const fsm_status_t a[] = {ARR_PHASE(card_pattern), NULL_PHASE};
@@ -124,7 +124,7 @@ card_pattern_t Game::getCardPattern(player_index_t obj, card_id card) {
     return (card_pattern_t)fsm->iRet;
 }
 
-card_point_t Game::getCardPointNum(player_index_t obj, card_id card) {
+card_point_t Game::getCardPointNum(player_index_t obj, card_id_t card) {
     return (card_point_t)0;
 }
 

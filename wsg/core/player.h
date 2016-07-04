@@ -30,7 +30,22 @@ public:
     
     Cards hand_cards;
     
-//    hero_id hero;
+    void selectHeroes(int i);
+    
+    int getSelectableHeroesNum();
+    
+    
+    
+    bool hintPlayer();
+    void getPlayerAction();
+    
+    
+    
+    
+    
+    
+    
+    
 };
 
 typedef std::vector<Player*> Players;

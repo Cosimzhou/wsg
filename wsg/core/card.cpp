@@ -135,10 +135,10 @@ const card_info_t wsg_cards_data_lib[] = {
 //
 
 const card_lib_extend_t sgs_ExCards[4] = {
-    {POKER(HS_DIAMOND, DS_QUEEN), KP_WUXIEKEJI},     //方片Q 无懈可击
-    {POKER(HS_CLUB, DS_2), KP_RENWANGDUN},            //梅花2 仁王盾
-    {POKER(HS_HEART, DS_QUEEN), KP_SHANDIAN},     //红桃Q 闪电
-    {POKER(HS_SAPDE, DS_2), KP_HANBINGJIAN}        //黑桃2 寒冰剑
+    {POKER(CP_DIAMOND, CP_QUEEN), KP_WUXIEKEJI},     //方片Q 无懈可击
+    {POKER(CP_CLUB, CP_2), KP_RENWANGDUN},            //梅花2 仁王盾
+    {POKER(CP_HEART, CP_QUEEN), KP_SHANDIAN},     //红桃Q 闪电
+    {POKER(CP_SAPDE, CP_2), KP_HANBINGJIAN}        //黑桃2 寒冰剑
 };
 
 /////////////////////////////////////////////////////////
@@ -148,7 +148,7 @@ const card_lib_extend_t sgs_ExCards[4] = {
 /////////////////////////////////////////////////////////
 
 inline card_function_id_t
-sgs_card_get_function_by_id(card_id idx) {
+sgs_card_get_function_by_id(card_id_t idx) {
     if (0 <= idx && idx < KP_TOTAL_NUM) {
         if (KP_SETCARD_NUM <= idx) {
             return sgs_ExCards[idx-KP_SETCARD_NUM].func;
@@ -178,7 +178,7 @@ void CardHeap::shuffle() {
 }
 
 //int
-//sgs_card_get_info_by_id(card_id idx, card_instance_info_t *info) {
+//sgs_card_get_info_by_id(card_id_t idx, card_instance_info_t *info) {
 //    if (info == NULL)
 //        return ERR_NO_SPACE;
 //    info->id = sgs_card_get_function_by_id(idx);

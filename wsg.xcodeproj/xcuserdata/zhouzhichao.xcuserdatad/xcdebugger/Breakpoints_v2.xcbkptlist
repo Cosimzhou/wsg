@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "wsg/core/skill.cpp"
-            timestampString = "486005706.807659"
+            filePath = "wsg/core/hero.cpp"
+            timestampString = "488868791.13571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532"
-            landmarkName = "SkillRegister::install(skill_id_t skid, player_index_t plr)"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "Hero::getHeroNamesByPackageID(package_mark_t pkm)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

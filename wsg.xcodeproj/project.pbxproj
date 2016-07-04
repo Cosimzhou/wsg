@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7927B77E1CED99C600AD593B /* fsm-status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7927B77D1CED99C600AD593B /* fsm-status.cpp */; };
+		79582A241D23C51300BA4FEB /* interact.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79582A221D23C51300BA4FEB /* interact.cpp */; };
+		79582A271D2A3F5C00BA4FEB /* wound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 79582A251D2A3F5C00BA4FEB /* wound.cpp */; };
 		796E79191CD0BB3C00E8C9F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79181CD0BB3C00E8C9F1 /* main.cpp */; };
 		796E79461CD0C54500E8C9F1 /* card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79441CD0C54500E8C9F1 /* card.cpp */; };
 		796E79491CD0C81900E8C9F1 /* hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79471CD0C81900E8C9F1 /* hero.cpp */; };
@@ -31,21 +33,26 @@
 
 /* Begin PBXFileReference section */
 		7927B77C1CED976E00AD593B /* fsm-status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fsm-status.h"; sourceTree = "<group>"; };
-		7927B77D1CED99C600AD593B /* fsm-status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "fsm-status.cpp"; sourceTree = "<group>"; };
+		7927B77D1CED99C600AD593B /* fsm-status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = "fsm-status.cpp"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		794B781B1CEC5F5900A0E579 /* skill-funcitem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "skill-funcitem.c"; sourceTree = "<group>"; };
+		79582A211D2370AF00BA4FEB /* skill-funcitem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skill-funcitem.h"; sourceTree = "<group>"; };
+		79582A221D23C51300BA4FEB /* interact.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interact.cpp; sourceTree = "<group>"; };
+		79582A231D23C51300BA4FEB /* interact.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interact.hpp; sourceTree = "<group>"; };
+		79582A251D2A3F5C00BA4FEB /* wound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wound.cpp; sourceTree = "<group>"; };
+		79582A261D2A3F5C00BA4FEB /* wound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wound.hpp; sourceTree = "<group>"; };
 		796E79151CD0BB3C00E8C9F1 /* wsg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wsg; sourceTree = BUILT_PRODUCTS_DIR; };
 		796E79181CD0BB3C00E8C9F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		796E79431CD0C35400E8C9F1 /* wsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wsg.h; sourceTree = "<group>"; };
 		796E79441CD0C54500E8C9F1 /* card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = card.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		796E79451CD0C54500E8C9F1 /* card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = card.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		796E79471CD0C81900E8C9F1 /* hero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hero.cpp; sourceTree = "<group>"; };
+		796E79471CD0C81900E8C9F1 /* hero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = hero.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		796E79481CD0C81900E8C9F1 /* hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hero.h; sourceTree = "<group>"; };
 		796E794A1CD0C88C00E8C9F1 /* skill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = skill.cpp; sourceTree = "<group>"; };
 		796E794B1CD0C88C00E8C9F1 /* skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = skill.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		796E794D1CD0CAE800E8C9F1 /* status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = status.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		796E794E1CD0CAE800E8C9F1 /* status.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = status.hpp; sourceTree = "<group>"; };
 		796E79501CD1A78E00E8C9F1 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
-		796E79511CD1A78E00E8C9F1 /* game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = game.hpp; sourceTree = "<group>"; };
+		796E79511CD1A78E00E8C9F1 /* game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; path = game.hpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		796E79531CD1BDAF00E8C9F1 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
 		796E79541CD1BDAF00E8C9F1 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,16 +102,21 @@
 				796E79511CD1A78E00E8C9F1 /* game.hpp */,
 				796E79471CD0C81900E8C9F1 /* hero.cpp */,
 				796E79481CD0C81900E8C9F1 /* hero.h */,
+				79582A251D2A3F5C00BA4FEB /* wound.cpp */,
+				79582A261D2A3F5C00BA4FEB /* wound.hpp */,
 				796E79531CD1BDAF00E8C9F1 /* player.cpp */,
 				796E79541CD1BDAF00E8C9F1 /* player.h */,
 				796E794A1CD0C88C00E8C9F1 /* skill.cpp */,
 				796E794B1CD0C88C00E8C9F1 /* skill.h */,
+				79582A211D2370AF00BA4FEB /* skill-funcitem.h */,
+				794B781B1CEC5F5900A0E579 /* skill-funcitem.c */,
 				796E794D1CD0CAE800E8C9F1 /* status.cpp */,
 				796E794E1CD0CAE800E8C9F1 /* status.hpp */,
 				7927B77D1CED99C600AD593B /* fsm-status.cpp */,
 				7927B77C1CED976E00AD593B /* fsm-status.h */,
 				796E79431CD0C35400E8C9F1 /* wsg.h */,
-				794B781B1CEC5F5900A0E579 /* skill-funcitem.c */,
+				79582A221D23C51300BA4FEB /* interact.cpp */,
+				79582A231D23C51300BA4FEB /* interact.hpp */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -171,8 +183,10 @@
 				796E794C1CD0C88C00E8C9F1 /* skill.cpp in Sources */,
 				796E794F1CD0CAE800E8C9F1 /* status.cpp in Sources */,
 				796E79521CD1A78E00E8C9F1 /* game.cpp in Sources */,
+				79582A241D23C51300BA4FEB /* interact.cpp in Sources */,
 				7927B77E1CED99C600AD593B /* fsm-status.cpp in Sources */,
 				796E79551CD1BDAF00E8C9F1 /* player.cpp in Sources */,
+				79582A271D2A3F5C00BA4FEB /* wound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -254,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
