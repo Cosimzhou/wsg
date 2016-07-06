@@ -2,7 +2,7 @@
 //  status.hpp
 //  wsg
 //
-//  Created by 周志超 on 16/4/27.
+//  Created by cosim on 16/4/27.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
@@ -69,4 +69,4 @@ protected:
 };
 
 WSG_END
-#endif /* __WSG__STATUS__HPP__ */
+#endif /* defined(__WSG__STATUS__HPP__) */

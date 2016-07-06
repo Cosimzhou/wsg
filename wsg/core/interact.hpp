@@ -2,7 +2,7 @@
 //  interact.hpp
 //  wsg
 //
-//  Created by 周志超 on 16/6/29.
+//  Created by cosim on 16/6/29.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 #include "wsg.h"
@@ -18,4 +18,4 @@ class interact {
     void getAction(void *);
 };
 
-#endif /* __WSG__INTERACT__H__ */
+#endif /* defined(__WSG__INTERACT__H__) */

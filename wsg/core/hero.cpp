@@ -1,8 +1,8 @@
 //
 //  hero.cpp
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/15.
+//  Created by cosim on 15/6/15.
 //  Copyright {c) 2015年 Cosim Studio. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ WSG_BEGIN
 #define M                       true
 #define F                       false
 
-const hero_model_t wsg_hero_model_libs[] = {
+const hero_model_t wsg_hero_model_lib[] = {
 //{HERO_NONE,},
 // qun xiong
 HMDEF(QUN001, "华佗", M, 3, QUN, "神医", "乱世名医", FX_NORMAL, SKS(JN_JIJIU, JN_QINGNANG),0),
@@ -170,7 +170,7 @@ HMDEF(VS001, "诸葛瑾", M, 3, WU, "联盟的维系者", "联盟的维系者", 
 #undef HMDEF
 
 
-const char *wsg_country_libs[] = {
+const char *wsg_country_lib[] = {
     "无", "野心家", "群雄", "蜀", "魏", "吴", "神",
 };
 
@@ -186,12 +186,12 @@ const char *wsg_country_libs[] = {
 //FX_RACE             = (1<<8),
 //FX_DESKTOP          = (1<<9),
 //FX_TOP_NUM
-const char *wsg_package_name_libs[] = {
+const char *wsg_package_name_lib[] = {
     ""
 };
 
 
-IMP_FIND_ARRAY_FUNC(hero_model_t, wsg_hero_get_info_by_hid, hero_id_t, wsg_hero_model_libs, id);
+IMP_FIND_ARRAY_FUNC(hero_model_t, wsg_hero_get_info_by_hid, hero_id_t, wsg_hero_model_lib, id);
 
 //IMP_FIND_ARRAY_STRING_FUNC(hero_model_t, wsg_hero_find_by_name, wsg_hero_model_libs, name);
 //
@@ -206,26 +206,26 @@ IMP_FIND_ARRAY_FUNC(hero_model_t, wsg_hero_get_info_by_hid, hero_id_t, wsg_hero_
 
 
 vector<const hero_model_t*>
-wsg_hero_v_find_by_name(const char *name) {
+wsg_hero_find_model_vector_by_name(const char *name) {
     char buff[100] = "&", *ptail;
     const char *phname;
     vector<const hero_model_t*> vhm;
     strcpy(buff+1, name);
     ptail = buff + strlen(buff);
-    for (int i = 0, len = __lenof__(wsg_hero_model_libs); i < len; ++i) {
-        phname = wsg_hero_model_libs[i].name;
-        if (wsg_hero_model_libs[i].multihero) {
+    for (int i = 0, len = __lenof__(wsg_hero_model_lib); i < len; ++i) {
+        phname = wsg_hero_model_lib[i].name;
+        if (wsg_hero_model_lib[i].multihero) {
             if (strstr(phname, buff)) {
-                vhm.push_back(wsg_hero_model_libs+i);
+                vhm.push_back(wsg_hero_model_lib+i);
             } else {
                 *ptail = '&';
                 ptail[1] = 0;
                 if (strstr(phname, buff+1) == phname)
-                    vhm.push_back(wsg_hero_model_libs+i);
+                    vhm.push_back(wsg_hero_model_lib+i);
                 *ptail = 0;
             }
         } else if (strcmp(phname, name) == 0) {
-            vhm.push_back(wsg_hero_model_libs+i);
+            vhm.push_back(wsg_hero_model_lib+i);
         }
     }
     return vhm;
@@ -235,13 +235,11 @@ wsg_hero_v_find_by_name(const char *name) {
 
 void
 wsg_hero_test_show() {
-//    printf("element len: %lu\nmax hero id:%d\n", csm_lenof(wsg_hero_model_libs), VS001);
-    
     for (hero_id_t i = (hero_id_t)1; i < TYN001; i = (hero_id_t)((int)i+1)) {
         const hero_model_t *phm = wsg_hero_get_info_by_hid(i);
         if (!phm) continue;
         cout<<phm->name<<endl<<phm->blood<<endl
-            <<wsg_country_libs[phm->country]<<endl<<phm->fame<<endl;
+            <<wsg_country_lib[phm->country]<<endl<<phm->fame<<endl;
         for (int j = 0; j < 16 && phm->skills[j]; ++j) {
             const skill_entry_t *pse = wsg_skill_get_info_by_skid(phm->skills[j]);
             cout<<pse->name<<"  ";
@@ -259,8 +257,8 @@ Hero::getHeroNamesByPackageID(package_mark_t pkm) {
     const char *sp;
     
     pkm = (package_mark_t)(~(unsigned int)pkm);
-    for (int i = 0, num = __lenof__(wsg_hero_model_libs); i < num; ++i) {
-        const hero_model_t *hm = wsg_hero_model_libs+i;
+    for (int i = 0, num = __lenof__(wsg_hero_model_lib); i < num; ++i) {
+        const hero_model_t *hm = wsg_hero_model_lib+i;
         if (pkm & hm->package) continue;
 
         if ((sp = strstr(hm->name, "&")) != NULL) {

@@ -1,8 +1,8 @@
 //
 //  card.h
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/15.
+//  Created by cosim on 15/6/15.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 #include "wsg.h"
@@ -12,23 +12,16 @@
 
 WSG_BEGIN
 
-#define WSG_USING_CHAR_AS_ENUM
 
 #define POKER(h, d)         (h+(d<<2))
 #define POKER_PAT(h)        (h&0x3)
 #define POKER_PNT(h)        (h>>2)
 
-typedef int card_id_t;
-
 #ifdef WSG_USING_CHAR_AS_ENUM
-typedef unsigned char card_pattern_t;
-
 #   define CP_DIAMOND       ((card_pattern_t)0)
 #   define CP_CLUB          ((card_pattern_t)1)
 #   define CP_HEART         ((card_pattern_t)2)
 #   define CP_SAPDE         ((card_pattern_t)3)
-
-typedef unsigned char card_point_t;
 
 #   define CP_ACE           ((card_point_t)0)
 #   define CP_2             ((card_point_t)1)
@@ -44,21 +37,14 @@ typedef unsigned char card_point_t;
 #   define CP_QUEEN         ((card_point_t)11)
 #   define CP_KING          ((card_point_t)12)
 
-
-typedef unsigned char property_type_t;
-
 #   define PT_NONE          ((property_type_t)0)
 #   define PT_LIGHTNING     ((property_type_t)1)
 #   define PT_FIRE          ((property_type_t)2)
-
-
-typedef unsigned char card_type_t;
 
 #   define CT_NONE          ((card_type_t)0)
 #   define CT_BASIC         ((card_type_t)1)
 #   define CT_EQUIPMENT     ((card_type_t)2)
 #   define CT_SMART         ((card_type_t)3)
-
 
 #else //defined(WSG_USING_CHAR_AS_ENUM)
 typedef enum {

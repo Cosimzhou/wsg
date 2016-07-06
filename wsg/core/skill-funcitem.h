@@ -2,7 +2,7 @@
 //  skill-funcitem.h
 //  wsg
 //
-//  Created by 周志超 on 16/6/29.
+//  Created by cosim on 16/6/29.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
@@ -254,5 +254,5 @@ DSK(YANLUO, "雁落", "", 0);
 #       undef FZ
 #       undef DSKFZ
 #       undef DSK
-#   endif /* __WSG__SKILL__LIST__H__ */
-#endif /* __WSG__DECLARE__SKILL__LIST__H__ */
+#   endif /* defined(__WSG__SKILL__LIST__H__) */
+#endif /* defined(__WSG__DECLARE__SKILL__LIST__H__) */

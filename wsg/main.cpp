@@ -2,7 +2,7 @@
 //  main.cpp
 //  wsg
 //
-//  Created by 周志超 on 16/4/27.
+//  Created by cosim on 16/4/27.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
@@ -64,7 +64,7 @@ int main(int argc, const char * argv[]) {
 //    is_runnable func return true
 //    implement run func
     
-    wsg_hero_v_find_by_name("张纮");
+    wsg_hero_find_model_vector_by_name("张纮");
     
     wsg_card_test_show();
 

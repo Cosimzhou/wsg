@@ -2,23 +2,24 @@
 //  wsg.h
 //  wsg
 //
-//  Created by 周志超 on 16/4/27.
+//  Created by cosim on 16/4/27.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #ifndef __WSG__H__
 #define __WSG__H__
 
-#define USING_WSG_NAMESPACE
-#ifdef USING_WSG_NAMESPACE
+#define WSG_USING_CHAR_AS_ENUM
+#define WSG_USING_WSG_NAMESPACE
+#ifdef WSG_USING_WSG_NAMESPACE
 #   define WSG_BEGIN            namespace WSG{
 #   define WSG_END              };
 #   define WSG_USING            using namespace WSG
-#else //USING_WSG_NAMESPACE
+#else //WSG_USING_WSG_NAMESPACE
 #   define WSG_BEGIN
 #   define WSG_END
 #   define WSG_USING
-#endif//USING_WSG_NAMESPACE
+#endif//WSG_USING_WSG_NAMESPACE
 
 
 #define __VA_ARGC__(...)        CSM_NARG(__VA_ARGS__,CSM_N_SEQ())
@@ -67,18 +68,18 @@ using namespace std;
 
 
 
-
+#include "type.h"
 #include "algorithm.h"
 #include "card.h"
 #include "interact.hpp"
-#include "player.h"
-#include "wound.hpp"
 #include "status.hpp"
 #include "skill.h"
 #include "hero.h"
+#include "player.h"
+#include "wound.hpp"
 #include "game.hpp"
 
 
 
 
-#endif /* __WSG__H__ */
+#endif /* defined(__WSG__H__) */

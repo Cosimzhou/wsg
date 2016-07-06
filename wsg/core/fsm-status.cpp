@@ -2,7 +2,7 @@
 //  fsm-status.cpp
 //  wsg
 //
-//  Created by 周志超 on 16/5/19.
+//  Created by cosim on 16/5/19.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
@@ -19,7 +19,6 @@ WSG_BEGIN
  *******************************************************************************/
 
 #ifdef DEBUG
-#   include <iostream>
 #   define SHOW_ME()    do {                                                    \
 ;                           for(int i=0;i<self->_game->fsm.size()-1;++i) {      \
 ;                               cout<<"  ";                                     \
@@ -114,7 +113,7 @@ int Game::getDistanceBetween(player_index_t from, player_index_t to) {
 }
 
 card_pattern_t Game::getCardPattern(player_index_t obj, card_id_t card) {
-    if (obj<0) return (card_pattern_t)0;
+    if (obj < 0) return (card_pattern_t)0;
 
     const fsm_status_t a[] = {ARR_PHASE(card_pattern), NULL_PHASE};
     FSM *fsm = new FSM(a, this);

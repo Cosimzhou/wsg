@@ -2,7 +2,7 @@
 //  algorithm.h
 //  wsg
 //
-//  Created by 周志超 on 16/7/5.
+//  Created by cosim on 16/7/5.
 //  Copyright © 2016年 老虎宝典. All rights reserved.
 //
 
@@ -68,4 +68,4 @@ const T* FN(const char *name) {                                                 
 
 
 
-#endif /* __WSG__ALGORITHM__H__ */
+#endif /* defined(__WSG__ALGORITHM__H__) */

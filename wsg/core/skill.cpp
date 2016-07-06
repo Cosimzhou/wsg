@@ -1,8 +1,8 @@
 //
 //  skill.cpp
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/16.
+//  Created by cosim on 15/6/16.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 #include "skill.h"
@@ -12,8 +12,8 @@ WSG_BEGIN
 #undef __WSG__DECLARE__SKILL__LIST__H__
 
 
-const skill_entry_t* wsg_skill_entries[] = {
-#   define WSG_DSKN(n)          DSKE(n)
+const skill_entry_t* const wsg_skill_entries[]  = {
+#   define WSG_DSKN(n)          DSKE(n),
 #   include "skill-list.h"
 #   undef WSG_DSKN
 };

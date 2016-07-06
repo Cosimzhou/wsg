@@ -1,8 +1,8 @@
 //
 //  player.h
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/15.
+//  Created by cosim on 15/6/15.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
@@ -26,8 +26,9 @@ public:
     Cards hand_cards;
     
     void selectHeroes(int i);
+    void setHeroes(const hero_model_t *phm);
     
-    int getSelectableHeroesNum();
+    int getSelectableHeroesNum() const;
     
     
     
@@ -36,7 +37,7 @@ public:
     
     
     
-    
+    const hero_model_t *heroModel[2];
     
     
     
@@ -44,7 +45,7 @@ public:
 };
 
 typedef vector<Player*> Players;
-typedef int player_index_t;
+
 
 WSG_END
 #endif /* defined(__WSG__PLAYER__H__) */

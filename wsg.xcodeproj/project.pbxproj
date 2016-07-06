@@ -42,6 +42,7 @@
 		79582A261D2A3F5C00BA4FEB /* wound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wound.hpp; sourceTree = "<group>"; };
 		79582A281D2BA29900BA4FEB /* algorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
 		79582A291D2BAC4600BA4FEB /* skill-list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skill-list.h"; sourceTree = "<group>"; };
+		79582A2A1D2CF71600BA4FEB /* type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = type.h; sourceTree = "<group>"; };
 		796E79151CD0BB3C00E8C9F1 /* wsg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wsg; sourceTree = BUILT_PRODUCTS_DIR; };
 		796E79181CD0BB3C00E8C9F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		796E79431CD0C35400E8C9F1 /* wsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wsg.h; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 				7927B77C1CED976E00AD593B /* fsm-status.h */,
 				796E79431CD0C35400E8C9F1 /* wsg.h */,
 				79582A281D2BA29900BA4FEB /* algorithm.h */,
+				79582A2A1D2CF71600BA4FEB /* type.h */,
 				79582A221D23C51300BA4FEB /* interact.cpp */,
 				79582A231D23C51300BA4FEB /* interact.hpp */,
 			);

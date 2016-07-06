@@ -1,8 +1,8 @@
 //
 //  hero.h
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/15.
+//  Created by cosim on 15/6/15.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
 
 #ifndef __WSG__HERO__H__
 #define __WSG__HERO__H__
-
 
 WSG_BEGIN
 
@@ -218,7 +217,7 @@ extern void
 wsg_hero_test_show();
 
 vector<const hero_model_t*>
-wsg_hero_v_find_by_name(const char *name);
+wsg_hero_find_model_vector_by_name(const char *name);
 
 DEF_FIND_ARRAY_STRING_FUNC(hero_model_t, wsg_hero_find_by_name);
 

@@ -1,8 +1,8 @@
 //
 //  game.h
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/16.
+//  Created by cosim on 15/6/16.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
@@ -49,6 +49,7 @@ public:
     CardHeap card_heap;
     CardHeap discard_heap;
 
+    GameHeroOptions heroChoosenOptions() const;
 
     bool hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const;
 

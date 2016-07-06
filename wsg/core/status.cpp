@@ -2,13 +2,11 @@
 //  status.cpp
 //  wsg
 //
-//  Created by 周志超 on 16/4/27.
+//  Created by cosim on 16/4/27.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #include "status.hpp"
-
-
 WSG_BEGIN
 
 ////////////////////////////////////////////////////

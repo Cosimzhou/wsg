@@ -1,8 +1,8 @@
 //
 //  player.c
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/15.
+//  Created by cosim on 15/6/15.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
@@ -23,14 +23,22 @@ WSG_BEGIN
 
 
 Player::Player(): alive(true) {
-
+    heroModel[0] = NULL;
+    heroModel[1] = NULL;
 }
 
 void Player::selectHeroes(int i) {
     
 }
 
-int Player::getSelectableHeroesNum() {
+int Player::getSelectableHeroesNum() const {
     return 5;
 }
+
+
+void Player::setHeroes(const hero_model_t *phm) {
+    this->blood_limit = phm->blood;
+//    this->
+}
+
 WSG_END

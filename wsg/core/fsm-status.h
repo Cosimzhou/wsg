@@ -2,7 +2,7 @@
 //  fsm-status.h
 //  wsg
 //
-//  Created by 周志超 on 16/5/19.
+//  Created by cosim on 16/5/19.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
@@ -56,4 +56,4 @@ DEF_PHASE(blood_change);
 
 #       undef DEF_PHASE
 #   endif /* __WSG__FSM__STATUS__H__ */
-#endif /* __WSG__DECLARE__FSM__STATUS__H__ */
+#endif /* defined(__WSG__DECLARE__FSM__STATUS__H__) */

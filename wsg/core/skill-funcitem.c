@@ -2,7 +2,7 @@
 //  skill-funcitem.c
 //  wsg
 //
-//  Created by 周志超 on 16/5/18.
+//  Created by cosim on 16/5/18.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 

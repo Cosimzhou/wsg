@@ -1,8 +1,8 @@
 //
 //  skill.h
-//  sgs
+//  wsg
 //
-//  Created by 周志超 on 15/6/16.
+//  Created by cosim on 15/6/16.
 //  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 #include "wsg.h"
@@ -13,7 +13,7 @@
 WSG_BEGIN
 
 typedef enum {
-#   define WSG_DSKN(n)          JN_##n
+#   define WSG_DSKN(n)          JN_##n,
 #   include "skill-list.h"
 #   undef WSG_DSKN
 } skill_id_t;
