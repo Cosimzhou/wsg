@@ -3,16 +3,11 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/16.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
 #include "game.hpp"
-
 #include <stdlib.h>
-#include <iostream>
-//#include <vector>
-#include <string>
-#include <set>
 
 WSG_BEGIN
 
@@ -27,33 +22,37 @@ Game::Game(const Game &g) : players(), fsm(), card_heap(), discard_heap(), sr(th
 }
 
 void Game::assign_hero() {
-    vector<string> *pvec = Hero::getHeroNamesByPackageID((package_mark_t)0x7f);
-    vector<vector<string> > psh;
+    vector<string> vec = Hero::getHeroNamesByPackageID((package_mark_t)0x7f);
     set<int> sdidx;
 
-    int idx, hnpp = (int)pvec->size()/players.size();
-    if (hnpp < 3)
-        exit(0);
-    if (hnpp > 7) hnpp = 7;
+//    int hnpp = (int)vec.size()/players.size();
+//    if (hnpp < 3) exit(0);
+//    if (hnpp > 7) hnpp = 7;
 
+    GameHeroOptions vmvhm;
     for(int i = 0; i < this->players.size(); ++i) {
-        vector<string> ppna;
+        PlayerHeroOptions mvhm;
         for (int j = 0; j < this->players[i]->getSelectableHeroesNum(); ++j) {
-            idx = rand() % pvec->size();
+            int idx = rand() % vec.size();
             while(sdidx.find(idx) != sdidx.end())
-                idx = rand() % pvec->size();
-            ppna.push_back((*pvec)[idx]);
+                idx = rand() % vec.size();
+            sdidx.insert(idx);
+            string name = vec[idx];
+            mvhm[name] = wsg_hero_v_find_by_name(name.c_str());
         }
-        psh.push_back(ppna);
+        vmvhm.push_back(mvhm);
     }
 
-    delete pvec;
-    
-    for (auto i = psh.begin(); i != psh.end(); ++i) {
+    for (auto i = vmvhm.begin(); i != vmvhm.end(); ++i) {
         for (auto j = i->begin(); j != i->end(); ++j) {
-            std::cout<<*j<<"  ";
+            cout<<j->first<<"(";
+            for (auto k = j->second.begin(); k != j->second.end(); ++k) {
+                if (k != j->second.begin()) cout<<" ";
+                cout<<(*k)->name<<(*k)->heroid;
+            }            
+            cout<<")  ";
         }
-        std::cout<<std::endl;
+        cout<<endl;
     }
 }
 
@@ -74,7 +73,7 @@ void Game::play() {
 }
 
 bool Game::hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const {
-    std::cout<<"will you act skill "<<psk->name<<"?"<<std::endl;
+    cout<<"will you act skill "<<psk->name<<"?"<<endl;
     return false;
 }
 

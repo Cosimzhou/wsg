@@ -3,7 +3,7 @@
 //  wsg
 //
 //  Created by 周志超 on 16/4/27.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #include "status.hpp"
@@ -18,14 +18,14 @@ WSG_BEGIN
 ////////////////////////////////////////////////////
 
 FSM::FSM(Game *game): _obj(-1), _game(game) {
-    std::queue<const fsm_status_t>::queue();
+    queue<const fsm_status_t>::queue();
     
     for (const fsm_status_t *ps = fsm_game_courses; *ps != NULL_PHASE; ++ps)
         this->push(*ps);
 }
 
 FSM::FSM(const fsm_status_t *fsm_course, Game *game): _obj(-1), _game(game) {
-    std::queue<const fsm_status_t>::queue();
+    queue<const fsm_status_t>::queue();
     
     for (const fsm_status_t *ps = fsm_course; *ps != NULL_PHASE; ++ps)
         this->push(*ps);
@@ -50,8 +50,8 @@ bool FSM::operator++() {
 void FSM::triggerSkill(const fsm_status_t st) {
     if (_obj < 0 || _obj >= _game->players.size())
         return;
-    std::map<fsm_status_t, Skills> *mp = _game->sr[_obj];
-    std::map<fsm_status_t, Skills>::iterator pss = mp->find(st);
+    map<fsm_status_t, Skills> *mp = _game->sr[_obj];
+    map<fsm_status_t, Skills>::iterator pss = mp->find(st);
     if (pss == mp->end()) return;
 
     Skills *sks = &(pss->second);

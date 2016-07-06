@@ -3,20 +3,20 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/15.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 #include "wsg.h"
 
 #ifndef __WSG__CARD__H__
 #define __WSG__CARD__H__
 
-#include <list>
-
 WSG_BEGIN
 
 #define WSG_USING_CHAR_AS_ENUM
 
-#define POKER(h, d)     (h+(d<<2))
+#define POKER(h, d)         (h+(d<<2))
+#define POKER_PAT(h)        (h&0x3)
+#define POKER_PNT(h)        (h>>2)
 
 typedef int card_id_t;
 
@@ -207,14 +207,16 @@ typedef struct {
 
     
     
-class CardHeap: std::list<card_id_t> {
+class CardHeap: public list<card_id_t> {
 public:
+    ~CardHeap();
+    
+    void shuffle();
     
     CardHeap& operator<<(card_id_t cardid) {
         this->push_back(cardid);
         return *this;
     }
-    
     CardHeap& operator>>(card_id_t &cardid) {
         if (this->empty())
             cardid = 0;
@@ -224,20 +226,18 @@ public:
         }
         return *this;
     }
-    
-    void shuffle();
 };
 
 
 class Card {
 public:
-    Card(card_id_t);
-    
-//    static void cardinfo(card_id_t, card_instance_info_t &cii);
+    static string cardinfo(card_id_t i);
 
+private:
+    Card();
 };
 
-typedef std::list<Card*> Cards;
+typedef list<Card*> Cards;
 
 //extern errcode
 //sgs_card_heap_create(card_heap *card_heap);
@@ -267,6 +267,8 @@ typedef std::list<Card*> Cards;
 //extern card_function_id
 //sgs_card_get_function_by_id(card_id_t idx);
 
+extern void
+wsg_card_test_show();
     
 WSG_END;
 #endif /* defined(__WSG__CARD__H__) */

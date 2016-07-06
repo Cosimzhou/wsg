@@ -3,7 +3,7 @@
 //  wsg
 //
 //  Created by 周志超 on 16/5/19.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #ifdef  __WSG__DECLARE__FSM__STATUS__H__

@@ -3,11 +3,12 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/15.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
 #include "player.h"
 
+WSG_BEGIN
 
 
 //errcode
@@ -32,3 +33,4 @@ void Player::selectHeroes(int i) {
 int Player::getSelectableHeroesNum() {
     return 5;
 }
+WSG_END

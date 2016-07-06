@@ -40,6 +40,8 @@
 		79582A231D23C51300BA4FEB /* interact.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interact.hpp; sourceTree = "<group>"; };
 		79582A251D2A3F5C00BA4FEB /* wound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wound.cpp; sourceTree = "<group>"; };
 		79582A261D2A3F5C00BA4FEB /* wound.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = wound.hpp; sourceTree = "<group>"; };
+		79582A281D2BA29900BA4FEB /* algorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
+		79582A291D2BAC4600BA4FEB /* skill-list.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skill-list.h"; sourceTree = "<group>"; };
 		796E79151CD0BB3C00E8C9F1 /* wsg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wsg; sourceTree = BUILT_PRODUCTS_DIR; };
 		796E79181CD0BB3C00E8C9F1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		796E79431CD0C35400E8C9F1 /* wsg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wsg.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				796E79541CD1BDAF00E8C9F1 /* player.h */,
 				796E794A1CD0C88C00E8C9F1 /* skill.cpp */,
 				796E794B1CD0C88C00E8C9F1 /* skill.h */,
+				79582A291D2BAC4600BA4FEB /* skill-list.h */,
 				79582A211D2370AF00BA4FEB /* skill-funcitem.h */,
 				794B781B1CEC5F5900A0E579 /* skill-funcitem.c */,
 				796E794D1CD0CAE800E8C9F1 /* status.cpp */,
@@ -115,6 +118,7 @@
 				7927B77D1CED99C600AD593B /* fsm-status.cpp */,
 				7927B77C1CED976E00AD593B /* fsm-status.h */,
 				796E79431CD0C35400E8C9F1 /* wsg.h */,
+				79582A281D2BA29900BA4FEB /* algorithm.h */,
 				79582A221D23C51300BA4FEB /* interact.cpp */,
 				79582A231D23C51300BA4FEB /* interact.hpp */,
 			);

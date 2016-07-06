@@ -3,19 +3,21 @@
 //  wsg
 //
 //  Created by 周志超 on 16/4/27.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #ifndef __WSG__H__
 #define __WSG__H__
 
-//#define USING_WSG_NAMESPACE
+#define USING_WSG_NAMESPACE
 #ifdef USING_WSG_NAMESPACE
-#   define WSG_BEGIN       namespace WSG{
-#   define WSG_END         }
+#   define WSG_BEGIN            namespace WSG{
+#   define WSG_END              };
+#   define WSG_USING            using namespace WSG
 #else //USING_WSG_NAMESPACE
 #   define WSG_BEGIN
 #   define WSG_END
+#   define WSG_USING
 #endif//USING_WSG_NAMESPACE
 
 
@@ -41,24 +43,39 @@
 #define __lenof__(arr)          (sizeof(arr)/sizeof(*arr))
 #define __swap__(x,y)           do{__typeof__(x) t=x;x=y;y=t;}while(0)
 
+
+
+
+
+
+
+
+
+
+#include <map>
+#include <set>
+#include <list>
+#include <stack>
+#include <queue>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
+
+
+
+
+#include "algorithm.h"
 #include "card.h"
-
-
 #include "interact.hpp"
 #include "player.h"
-
 #include "wound.hpp"
-
-
 #include "status.hpp"
-
 #include "skill.h"
 #include "hero.h"
-
-
-
 #include "game.hpp"
 
 

@@ -3,7 +3,7 @@
 //  wsg
 //
 //  Created by 周志超 on 16/6/29.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #ifdef  __WSG__DECLARE__SKILL__LIST__H__
@@ -11,6 +11,7 @@
 #   ifndef __WSG__SKILL__LIST__H__
 
 #       define F(x,c)                          {FSM::x,c}
+#       define FS(x)                           F(x,JNT_SELF)
 #       define FZ                              F(round_play,JNT_SELF)
 #       define DSKFZ(id)                       DSKE(id,FZ)
 #       define DSKE(id)                        &__ske_##id##__
@@ -62,7 +63,7 @@ DSK(FANGQUAN, "放权", "", 0);
 DSK(FANJIAN, "反间", "", 0);
 DSK(FANKUI, "反馈", "", 0);
 DSK(FANZHU, "放逐", "", 0);
-DSK(FEIYING, "飞影", "", JNL_LOCKED, F(distance_to, JNT_SELF));
+DSK(FEIYING, "飞影", "", JNL_LOCKED, FS(distance_to));
 DSK(FUHUN, "父魂", "", 0);
 DSK(FULI, "伏枥", "", 0);
 DSK(GANGLIE, "刚烈", "", 0);
@@ -77,7 +78,7 @@ DSK(GUIXIN, "归心", "", 0);
 DSK(GUOSE, "国色", "", 0);
 DSK(GUZHENG, "固政", "", 0);
 DSK(HAOSHI, "好施", "", 0);
-DSK(HONGYAN, "红颜", "", JNL_LOCKED, F(card_pattern, JNT_SELF));
+DSK(HONGYAN, "红颜", "", JNL_LOCKED, FS(card_pattern));
 DSK(HONGYUAN, "弘援", "", 0);
 DSK(HUANGTIAN, "黄天", "", JNL_MASTER);
 DSK(HUANSHI, "缓释", "", 0);
@@ -135,7 +136,7 @@ DSK(LUOSHEN, "洛神", "", 0);
 DSK(LUOYI, "裸衣", "", 0);
 DSK(LUOYING, "落英", "", 0);
 DSK(MANJUAN, "漫卷", "", 0);
-DSK(MASHU, "马术", "锁定技，当你计算与其他角色的距离时，始终-1。", JNL_LOCKED, F(distance_from, JNT_SELF));
+DSK(MASHU, "马术", "锁定技，当你计算与其他角色的距离时，始终-1。", JNL_LOCKED, FS(distance_from));
 DSK(MENGJIN, "猛进", "", 0);
 DSK(MIJI, "秘计", "", 0);
 DSK(MINGCE, "明策", "", 0);

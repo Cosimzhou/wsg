@@ -3,7 +3,7 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/15.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
 #include "wsg.h"
@@ -11,8 +11,6 @@
 #ifndef __WSG__HERO__H__
 #define __WSG__HERO__H__
 
-
-#include <vector>
 
 WSG_BEGIN
 
@@ -199,6 +197,9 @@ typedef struct {
     const char *fame;
     const char *nick;
     package_mark_t package;
+    const char *heroid;
+    const char *hunname;
+    int multihero;
 } hero_model_t;
 
 
@@ -209,14 +210,17 @@ public:
 
     static Hero* getHeroByID(hero_id_t);
     static Hero* getHeroesByID(hero_id_t);
-    static vector<string>* getHeroNamesByPackageID(package_mark_t);
+    static vector<string> getHeroNamesByPackageID(package_mark_t);
 };
 
 
 extern void
-test();
+wsg_hero_test_show();
 
+vector<const hero_model_t*>
+wsg_hero_v_find_by_name(const char *name);
 
+DEF_FIND_ARRAY_STRING_FUNC(hero_model_t, wsg_hero_find_by_name);
 
 WSG_END;
 #endif /* defined(__WSG__HERO__H__) */

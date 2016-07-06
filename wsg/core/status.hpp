@@ -3,16 +3,13 @@
 //  wsg
 //
 //  Created by 周志超 on 16/4/27.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #include "wsg.h"
 
 #ifndef __WSG__STATUS__HPP__
 #define __WSG__STATUS__HPP__
-
-#include <queue>
-//#include <map>
 
 WSG_BEGIN
 
@@ -34,7 +31,7 @@ typedef enum {
 
 
 
-class FSM: std::queue<const fsm_status_t> {
+class FSM: queue<const fsm_status_t> {
 public:
     FSM(Game *game);
 

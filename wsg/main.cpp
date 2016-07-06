@@ -3,19 +3,14 @@
 //  wsg
 //
 //  Created by 周志超 on 16/4/27.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <ostream>
-#include <set>
-#include <map>
-
-#include <stdlib.h>
+//#include <stdlib.h>
 
 #include "wsg.h"
+
+WSG_USING;
 
 int main(int argc, const char * argv[]) {
 //    std::vector<int> vec;
@@ -68,7 +63,13 @@ int main(int argc, const char * argv[]) {
 //    add JNL_LOCKED to skill_entries
 //    is_runnable func return true
 //    implement run func
+    
+    wsg_hero_v_find_by_name("张纮");
+    
+    wsg_card_test_show();
 
+    wsg_hero_test_show();
+    
     Game game = Game();
     game.sr.assignPlayers(8);
     

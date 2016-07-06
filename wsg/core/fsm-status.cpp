@@ -3,7 +3,7 @@
 //  wsg
 //
 //  Created by 周志超 on 16/5/19.
-//  Copyright © 2016年 老虎宝典. All rights reserved.
+//  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
 #include "status.hpp"
@@ -21,9 +21,10 @@ WSG_BEGIN
 #ifdef DEBUG
 #   include <iostream>
 #   define SHOW_ME()    do {                                                    \
-;                           for(int i=0;i<self->_game->fsm.size()-1;++i)        \
-;                               std::cout<<"  ";                                \
-;                           std::cout<<__func__<<std::endl;                     \
+;                           for(int i=0;i<self->_game->fsm.size()-1;++i) {      \
+;                               cout<<"  ";                                     \
+;                           }                                                   \
+;                           cout<<__func__<<endl;                               \
 ;                       } while(0)
 #else// DEBUG
 #   define SHOW_ME()
@@ -31,7 +32,7 @@ WSG_BEGIN
 
 
 #define ARR_PHASE(x)    FSM::x,FSM::x##_after
-#define FSM_NEW(p)      FSM *fsm = new FSM(fsm_##p##_courses, self->_game)
+#define FSM_NEW(p)      FSM *fsm = new FSM(SCRS(p), self->_game)
 #define FSM_SEND()      self->_game->perform(fsm)
 #define SCRS(c)         fsm_##c##_courses
 #define DCRS(c,...)                                                             \

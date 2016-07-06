@@ -3,7 +3,7 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/15.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
 #include "wsg.h"
@@ -11,12 +11,7 @@
 #ifndef __WSG__PLAYER__H__
 #define __WSG__PLAYER__H__
 
-
-
-#include <vector>
 WSG_BEGIN
-
-//#include "card.h"
 
 class Player {
 public:
@@ -48,7 +43,7 @@ public:
     
 };
 
-typedef std::vector<Player*> Players;
+typedef vector<Player*> Players;
 typedef int player_index_t;
 
 WSG_END

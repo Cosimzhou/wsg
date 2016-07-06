@@ -3,7 +3,7 @@
 //  sgs
 //
 //  Created by 周志超 on 15/6/16.
-//  Copyright (c) 2015年 老虎宝典. All rights reserved.
+//  Copyright (c) 2015年 Cosim Studio. All rights reserved.
 //
 
 
@@ -12,12 +12,11 @@
 #ifndef __WSG__GAME__H__
 #define __WSG__GAME__H__
 
-#include <stack>
-#include <vector>
-
-
 WSG_BEGIN
 
+
+typedef vector<map<string, vector<const hero_model_t*> > > GameHeroOptions;
+typedef map<string, vector<const hero_model_t*> > PlayerHeroOptions;
 
 class FSM;
 class Player;
@@ -61,7 +60,7 @@ public:
 
     SkillRegister sr;
 //protected:
-    std::stack<FSM*> fsm;
+    stack<FSM*> fsm;
     
 };
 
