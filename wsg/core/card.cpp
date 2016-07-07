@@ -9,11 +9,6 @@
 #include "card.h"
 #include <time.h>
 
-#define KP_SET_CARDS            (13*4)
-#define KP_SET_NUM              3
-#define KP_SETCARD_NUM          (KP_SET_NUM*KP_SET_CARDS)
-#define KP_TOTAL_NUM            (KP_SETCARD_NUM + 4)
-
 WSG_BEGIN
 
 /* wsg_cards_lib
@@ -246,6 +241,17 @@ CardHeap::~CardHeap() {
     list<card_id_t>::~list<card_id_t>();
 }
 
+void CardHeap::fill_heap(int type) {
+    clear();
+    for (card_id_t i = 0; i < KP_TOTAL_NUM; ++i) {
+        if (type != 0 && i == KP_SET_BSC_CARD_NUM) {
+            i = KP_SETCARD_NUM - 1;
+            continue;
+        }
+        (*this)<<i;
+    }
+}
+
 void CardHeap::shuffle() {
     vector<card_id_t> buff;
     buff.assign(size(), ((card_id_t)0));
@@ -276,6 +282,10 @@ string Card::cardinfo(card_id_t i) {
     sstr<<wsg_card_pattern_list[cp]<<wsg_card_point_list[cpn]<<"【"<<pci->name<<"】";
     
     return sstr.str();
+}
+
+card_function_id_t Card::card_function(card_id_t i) {
+    return wsg_card_get_function_by_id(i);
 }
 
 //int

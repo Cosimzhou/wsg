@@ -65,12 +65,11 @@ int main(int argc, const char * argv[]) {
 //    implement run func
     
     wsg_hero_find_model_vector_by_name("张纮");
-    
-    wsg_card_test_show();
-
-    wsg_hero_test_show();
+//    wsg_card_test_show();
+//    wsg_hero_test_show();
     
     Game game = Game();
+    game.restart_game();
     game.sr.assignPlayers(8);
     
     for(int i = 0; i < 8; ++i)
@@ -81,7 +80,7 @@ int main(int argc, const char * argv[]) {
     game.sr.install(JN_FEIYING, 0);
     game.sr.install(JN_MASHU, 3);
     
-//    game.play();
+    game.play();
 
 
     return 0;

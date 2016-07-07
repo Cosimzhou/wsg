@@ -44,7 +44,7 @@ DEF_PHASE(hurted);
 
 DEF_PHASE(blood_change);
 
-
+DEF_PHASE(a);
 
 
 

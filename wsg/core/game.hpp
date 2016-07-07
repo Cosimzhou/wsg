@@ -36,6 +36,9 @@ public:
     Game();
     Game(const Game&);
 
+    void restart_game();
+    card_id_t draw_card();
+    void player_draw_cards(player_index_t, int);
     void assign_hero();
 
     int round_player;

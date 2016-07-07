@@ -17,7 +17,9 @@ Game::Game()
     
 }
 
-Game::Game(const Game &g) : players(), fsm(), card_heap(), discard_heap(), sr(this) {
+Game::Game(const Game &g)
+    : players(), fsm(), card_heap(), discard_heap(), sr(this)
+{
     
 }
 
@@ -63,19 +65,45 @@ void Game::assign_hero() {
     
     const hero_model_t *phm;
     for (int i = 0; i < players.size(); ++i) {
-        players[i]->heroModel[0] = vmvhm[i].begin()->second[0];
+        phm = vmvhm[i].begin()->second[0];
         for (auto vi = vmvhm[i].begin(); vi != vmvhm[i].end(); ++vi) {
             if (rand()%5 > 3) {
-                players[i]->heroModel[0] = vi->second[rand() % vi->second.size()];
+                phm = vi->second[rand() % vi->second.size()];
                 break;
             }
         }
-        phm = players[i]->heroModel[0];
-        cout<<"在"<<i+1<<"号位玩家选择了："<<phm->name<<"("<<phm->heroid<<")"<<endl;
-        
+        players[i]->heroModel[0] = phm;
+        players[i]->blood = players[i]->blood_limit = phm->blood;
         for (int s = 0; s < 16 && phm->skills[s]; ++s) {
             sr.install(phm->skills[s], i);
         }
+        cout<<"在"<<i+1<<"号位玩家选择了："<<phm->name<<"("<<phm->heroid<<")"<<endl;
+    }
+}
+
+void Game::restart_game() {
+    card_heap.fill_heap();
+    card_heap.shuffle();
+    
+    discard_heap.clear();
+}
+
+card_id_t Game::draw_card() {
+    card_id_t card;
+    card_heap>>card;
+    if (!ISVAL_CARDID(card)) {
+        card_heap.assign(discard_heap.begin(), discard_heap.end());
+        discard_heap.clear();
+        card_heap.shuffle();
+        card_heap>>card;
+    }
+    return card;
+}
+
+void Game::player_draw_cards(player_index_t plr, int num) {
+    while (num-- > 0) {
+        card_id_t cid = draw_card();
+        players[plr]->hand_cards.push_back(cid);
     }
 }
 

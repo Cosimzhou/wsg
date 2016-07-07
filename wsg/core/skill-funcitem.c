@@ -374,9 +374,8 @@ sk_HONGYAN_is_runnable(Game &game, fsm_status_t status){
 }
 void
 sk_HONGYAN_run(Game &game) {
-    int i = game.fsm.top()->param[0];
-    if (i % 4 == 3) --i;
-    game.fsm.top()->param[0] = i;
+    if (CP_SAPDE == game.fsm.top()->params[FP_card_pattern])
+        game.fsm.top()->params[FP_card_pattern] = CP_HEART;
 }
 
 bool
@@ -1828,4 +1827,4 @@ sk_YANLUO_run(Game &game) {
 
 }
 
-#endif// __SKILL_SOURCE_C__
+#endif // __SKILL_SOURCE_C__

@@ -1,12 +1,12 @@
 //
-//  status.cpp
+//  fsm.cpp
 //  wsg
 //
 //  Created by cosim on 16/4/27.
 //  Copyright © 2016年 Cosim Studio. All rights reserved.
 //
 
-#include "status.hpp"
+#include "fsm.hpp"
 WSG_BEGIN
 
 ////////////////////////////////////////////////////
@@ -22,7 +22,7 @@ FSM::FSM(Game *game): _obj(-1), _game(game) {
         this->push(*ps);
 }
 
-FSM::FSM(const fsm_status_t *fsm_course, Game *game): _obj(-1), _game(game) {
+FSM::FSM(const fsm_status_t *fsm_course, Game *game, player_index_t plr): _obj(plr), _game(game) {
     queue<const fsm_status_t>::queue();
     
     for (const fsm_status_t *ps = fsm_course; *ps != NULL_PHASE; ++ps)
@@ -65,6 +65,14 @@ void FSM::triggerSkill(const fsm_status_t st) {
     }
 }
 
+
+bool FSM::param_valid(fsm_param_type_t key) const {
+    return params.find(key) != params.end();
+}
+int FSM::param_value(fsm_param_type_t key) const {
+    fsm_param_t::const_iterator cit = params.find(key);
+    return cit->second;
+}
 
 
 WSG_END

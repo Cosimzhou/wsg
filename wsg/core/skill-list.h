@@ -8,7 +8,7 @@
 
 #ifdef WSG_DSKN
 #define __WSG__SKILL__LIST__NEEDED__H__
-#endif//WSG_DSKN
+#endif //WSG_DSKN
 #ifdef __WSG__SKILL__LIST__NEEDED__H__
 
 WSG_DSKN(NONE) 

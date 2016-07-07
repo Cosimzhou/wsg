@@ -19,7 +19,7 @@
 #   define WSG_BEGIN
 #   define WSG_END
 #   define WSG_USING
-#endif//WSG_USING_WSG_NAMESPACE
+#endif //WSG_USING_WSG_NAMESPACE
 
 
 #define __VA_ARGC__(...)        CSM_NARG(__VA_ARGS__,CSM_N_SEQ())
@@ -72,7 +72,7 @@ using namespace std;
 #include "algorithm.h"
 #include "card.h"
 #include "interact.hpp"
-#include "status.hpp"
+#include "fsm.hpp"
 #include "skill.h"
 #include "hero.h"
 #include "player.h"

@@ -1,5 +1,5 @@
 //
-//  status.hpp
+//  fsm.hpp
 //  wsg
 //
 //  Created by cosim on 16/4/27.
@@ -24,14 +24,18 @@ extern const fsm_status_t fsm_game_courses[];
 
 
 typedef enum {
-    FP_Distance,
-} fsm_param_t;
+    FP_distance,
+    FP_draw_card_num,
+    FP_discard_num,
+    FP_target_player,
+    FP_card,
+    FP_card_pattern,
+    FP_delta_blood,
+} fsm_param_type_t;
 
+typedef map<fsm_param_type_t, int> fsm_param_t;
 
-
-
-
-class FSM: queue<const fsm_status_t> {
+class FSM: public queue<const fsm_status_t> {
 public:
     FSM(Game *game);
 
@@ -41,13 +45,6 @@ public:
      */
     bool operator++();
 
-
-#define __WSG__DECLARE__FSM__STATUS__H__
-#   include "fsm-status.h"
-#undef __WSG__DECLARE__FSM__STATUS__H__
-
-
-
     Game *_game;
     player_index_t _obj;
 
@@ -56,16 +53,23 @@ public:
         char *sRet;
     };
 
-    int param[16];
-
+    fsm_param_t params;
+    
+    bool param_valid(fsm_param_type_t) const;
+    int param_value(fsm_param_type_t) const;
+    
     friend class Game;
 protected:
-    FSM(const fsm_status_t *fsm_course, Game *game);
+    FSM(const fsm_status_t *fsm_course, Game *game, player_index_t plr);
     
-    Player* curPlayer() const;
+//    Player* curPlayer() const;
 
     void triggerSkill(const fsm_status_t st);
 
+public:
+#define __WSG__DECLARE__FSM__STATUS__H__
+#   include "fsm-status.h"
+#undef __WSG__DECLARE__FSM__STATUS__H__
 };
 
 WSG_END

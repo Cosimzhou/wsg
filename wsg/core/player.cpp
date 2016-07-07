@@ -38,6 +38,7 @@ int Player::getSelectableHeroesNum() const {
 
 void Player::setHeroes(const hero_model_t *phm) {
     this->blood_limit = phm->blood;
+    this->blood = phm->blood;
 //    this->
 }
 

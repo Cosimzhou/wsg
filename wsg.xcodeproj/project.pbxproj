@@ -14,7 +14,7 @@
 		796E79461CD0C54500E8C9F1 /* card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79441CD0C54500E8C9F1 /* card.cpp */; };
 		796E79491CD0C81900E8C9F1 /* hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79471CD0C81900E8C9F1 /* hero.cpp */; };
 		796E794C1CD0C88C00E8C9F1 /* skill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E794A1CD0C88C00E8C9F1 /* skill.cpp */; };
-		796E794F1CD0CAE800E8C9F1 /* status.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E794D1CD0CAE800E8C9F1 /* status.cpp */; };
+		796E794F1CD0CAE800E8C9F1 /* fsm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E794D1CD0CAE800E8C9F1 /* fsm.cpp */; };
 		796E79521CD1A78E00E8C9F1 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79501CD1A78E00E8C9F1 /* game.cpp */; };
 		796E79551CD1BDAF00E8C9F1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79531CD1BDAF00E8C9F1 /* player.cpp */; };
 /* End PBXBuildFile section */
@@ -35,7 +35,7 @@
 		7927B77C1CED976E00AD593B /* fsm-status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fsm-status.h"; sourceTree = "<group>"; };
 		7927B77D1CED99C600AD593B /* fsm-status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = "fsm-status.cpp"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		794B781B1CEC5F5900A0E579 /* skill-funcitem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "skill-funcitem.c"; sourceTree = "<group>"; };
-		79582A211D2370AF00BA4FEB /* skill-funcitem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "skill-funcitem.h"; sourceTree = "<group>"; };
+		79582A211D2370AF00BA4FEB /* skill-funcitem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "skill-funcitem.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		79582A221D23C51300BA4FEB /* interact.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interact.cpp; sourceTree = "<group>"; };
 		79582A231D23C51300BA4FEB /* interact.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = interact.hpp; sourceTree = "<group>"; };
 		79582A251D2A3F5C00BA4FEB /* wound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wound.cpp; sourceTree = "<group>"; };
@@ -52,8 +52,8 @@
 		796E79481CD0C81900E8C9F1 /* hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hero.h; sourceTree = "<group>"; };
 		796E794A1CD0C88C00E8C9F1 /* skill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = skill.cpp; sourceTree = "<group>"; };
 		796E794B1CD0C88C00E8C9F1 /* skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = skill.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		796E794D1CD0CAE800E8C9F1 /* status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = status.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		796E794E1CD0CAE800E8C9F1 /* status.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = status.hpp; sourceTree = "<group>"; };
+		796E794D1CD0CAE800E8C9F1 /* fsm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fsm.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		796E794E1CD0CAE800E8C9F1 /* fsm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fsm.hpp; sourceTree = "<group>"; };
 		796E79501CD1A78E00E8C9F1 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		796E79511CD1A78E00E8C9F1 /* game.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; path = game.hpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		796E79531CD1BDAF00E8C9F1 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
@@ -114,8 +114,8 @@
 				79582A291D2BAC4600BA4FEB /* skill-list.h */,
 				79582A211D2370AF00BA4FEB /* skill-funcitem.h */,
 				794B781B1CEC5F5900A0E579 /* skill-funcitem.c */,
-				796E794D1CD0CAE800E8C9F1 /* status.cpp */,
-				796E794E1CD0CAE800E8C9F1 /* status.hpp */,
+				796E794D1CD0CAE800E8C9F1 /* fsm.cpp */,
+				796E794E1CD0CAE800E8C9F1 /* fsm.hpp */,
 				7927B77D1CED99C600AD593B /* fsm-status.cpp */,
 				7927B77C1CED976E00AD593B /* fsm-status.h */,
 				796E79431CD0C35400E8C9F1 /* wsg.h */,
@@ -187,7 +187,7 @@
 				796E79491CD0C81900E8C9F1 /* hero.cpp in Sources */,
 				796E79461CD0C54500E8C9F1 /* card.cpp in Sources */,
 				796E794C1CD0C88C00E8C9F1 /* skill.cpp in Sources */,
-				796E794F1CD0CAE800E8C9F1 /* status.cpp in Sources */,
+				796E794F1CD0CAE800E8C9F1 /* fsm.cpp in Sources */,
 				796E79521CD1A78E00E8C9F1 /* game.cpp in Sources */,
 				79582A241D23C51300BA4FEB /* interact.cpp in Sources */,
 				7927B77E1CED99C600AD593B /* fsm-status.cpp in Sources */,

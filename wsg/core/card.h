@@ -12,17 +12,24 @@
 
 WSG_BEGIN
 
+#define KP_SET_CARDS            (13*4)
+#define KP_SET_NUM              3
+#define KP_SET_BSC_CARD_NUM     (KP_SET_NUM*2)
+#define KP_SETCARD_NUM          (KP_SET_NUM*KP_SET_CARDS)
+#define KP_TOTAL_NUM            (KP_SETCARD_NUM + 4)
+
 
 #define POKER(h, d)         (h+(d<<2))
 #define POKER_PAT(h)        (h&0x3)
 #define POKER_PNT(h)        (h>>2)
+#define ISVAL_CARDID(cid)   (cid>=0&&cid<KP_TOTAL_NUM)
 
 #ifdef WSG_USING_CHAR_AS_ENUM
 #   define CP_DIAMOND       ((card_pattern_t)0)
 #   define CP_CLUB          ((card_pattern_t)1)
 #   define CP_HEART         ((card_pattern_t)2)
 #   define CP_SAPDE         ((card_pattern_t)3)
-
+//////////////////////////////////////////////////////////
 #   define CP_ACE           ((card_point_t)0)
 #   define CP_2             ((card_point_t)1)
 #   define CP_3             ((card_point_t)2)
@@ -36,16 +43,15 @@ WSG_BEGIN
 #   define CP_JACK          ((card_point_t)10)
 #   define CP_QUEEN         ((card_point_t)11)
 #   define CP_KING          ((card_point_t)12)
-
+//////////////////////////////////////////////////////////
 #   define PT_NONE          ((property_type_t)0)
 #   define PT_LIGHTNING     ((property_type_t)1)
 #   define PT_FIRE          ((property_type_t)2)
-
+//////////////////////////////////////////////////////////
 #   define CT_NONE          ((card_type_t)0)
 #   define CT_BASIC         ((card_type_t)1)
 #   define CT_EQUIPMENT     ((card_type_t)2)
 #   define CT_SMART         ((card_type_t)3)
-
 #else //defined(WSG_USING_CHAR_AS_ENUM)
 typedef enum {
     CP_DIAMOND,
@@ -198,6 +204,7 @@ public:
     ~CardHeap();
     
     void shuffle();
+    void fill_heap(int type=0);
     
     CardHeap& operator<<(card_id_t cardid) {
         this->push_back(cardid);
@@ -205,7 +212,7 @@ public:
     }
     CardHeap& operator>>(card_id_t &cardid) {
         if (this->empty())
-            cardid = 0;
+            cardid = -1;
         else {
             cardid = this->front();
             this->pop_front();
@@ -218,12 +225,12 @@ public:
 class Card {
 public:
     static string cardinfo(card_id_t i);
-
+    static card_function_id_t card_function(card_id_t);
 private:
     Card();
 };
 
-typedef list<Card*> Cards;
+
 
 //extern errcode
 //sgs_card_heap_create(card_heap *card_heap);

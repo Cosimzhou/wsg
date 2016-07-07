@@ -19,8 +19,10 @@ typedef     unsigned char       card_pattern_t;
 typedef     unsigned char       card_point_t;
 typedef     unsigned char       property_type_t;
 typedef     unsigned char       card_type_t;
-#endif// WSG_USING_CHAR_AS_ENUM
+#endif // WSG_USING_CHAR_AS_ENUM
 
+
+typedef list<card_id_t> Cards;
 
 WSG_END
 #endif /* defined(__WSG__TYPE__H__) */
