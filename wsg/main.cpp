@@ -68,6 +68,8 @@ int main(int argc, const char * argv[]) {
 //    wsg_card_test_show();
 //    wsg_hero_test_show();
     
+    cout<<__offset__(hero_model_t, package)<<endl;
+    
     Game game = Game();
     game.restart_game();
     game.sr.assignPlayers(8);

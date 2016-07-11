@@ -73,9 +73,9 @@ DCRS(distance,
 //     ARR_PHASE(card_dotnum)
 //     );
 
-DCRS(play_card,
-     ARR_PHASE(a),
-     );
+//DCRS(play_card,
+//     ARR_PHASE(a),
+//     );
 
 DCRS(hurt_give,
      ARR_PHASE(hurt_form),
