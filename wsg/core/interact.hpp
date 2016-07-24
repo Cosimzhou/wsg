@@ -10,6 +10,24 @@
 #ifndef __WSG__INTERACT__H__
 #define __WSG__INTERACT__H__
 
+WSG_BEGIN
+
+typedef struct  {
+    int num_card;
+    card_id_t *cards;
+    int num_player;
+    player_index_t *players;
+} operation_param_t;
+
+typedef struct {
+    operation_param_t params;
+    char *msg;
+} hint_param_t;
+
+typedef struct {
+    operation_param_t params;
+    int option;
+} action_param_t;
 
 class interact {
     int timeout;
@@ -18,4 +36,8 @@ class interact {
     void getAction(void *);
 };
 
+extern void
+wsg_operation_param_fill_with_buffer(void *, operation_param_t *);
+
+WSG_END
 #endif /* defined(__WSG__INTERACT__H__) */

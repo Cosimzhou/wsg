@@ -1,3 +1,4 @@
 .DS_Store
-wsg.xcodeproj/xcuserdata/*
-wsg.xcodeproj/project.xcworkspace/xcuserdata/*
+**/xcsharedata/
+**/xcuserdata/
+**/build/
