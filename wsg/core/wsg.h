@@ -22,6 +22,27 @@
 #endif //WSG_USING_WSG_NAMESPACE
 
 
+#define __xbig__(x)          ({__typeof__(x) t = x;                             \
+                               __xbit##sizeof(x)##__((unsigned char*)&t);       \
+                               t})
+#define __xbit2__(b)          __swap__((b)[0],(b)[1])
+#define __xbit4__(b)          __swap__((b)[0],(b)[3]),__swap__((b)[1],(b)[2])
+#define __xbit8__(b)          __swap__((b)[0],(b)[7]),__swap__((b)[1],(b)[6]),  \
+                              __swap__((b)[2],(b)[5]),__swap__((b)[3],(b)[4])
+
+#if WSG_USING_NTOH
+#   define CSM_READ_NCB          NTOHL
+#   define CSM_WRITE_NCB         HTONL
+#else//WSG_USING_NTOH
+#   if LITTLE_ENDIAN
+#       define CSM_READ_NCB(x)   __xbig__(x)
+#       define CSM_WRITE_NCB(x)  __xbig__(x)
+#   else//LITTLE_ENDIAN
+#       define CSM_READ_NCB(x)   (x)
+#       define CSM_WRITE_NCB(x)  (x)
+#   endif//LITTLE_ENDIAN
+#endif//WSG_USING_NTOH
+
 #define CSM_NARG(...)           CSM_ARG_N(__VA_ARGS__)
 #define CSM_ARG_N(_1, _2, _3, _4, _5, _6, _7, _8, _9,_10,                       \
                   _11,_12,_13,_14,_15,_16,_17,_18,_19,_20,                      \

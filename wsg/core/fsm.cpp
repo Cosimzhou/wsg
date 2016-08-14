@@ -48,11 +48,29 @@ bool FSM::operator++() {
 void FSM::triggerSkill(const fsm_status_t st) {
     if (_obj < 0 || _obj >= _game->players.size())
         return;
+    
+    Skills *sks;
+    map<fsm_status_t, Skills>::iterator pss;
+    if (st == smart_act_on) {
+        for (SkillRegister::iterator i = _game->sr.begin(); i != _game->sr.end(); ++i) {
+            pss = (*i)->find(st);
+            if (pss == (*i)->end()) continue;
+            
+            sks = &(pss->second);
+            if (sks->empty()) continue;
+            
+            
+        }
+        
+        return;
+    }
+    
+
     map<fsm_status_t, Skills> *mp = _game->sr[_obj];
-    map<fsm_status_t, Skills>::iterator pss = mp->find(st);
+    pss = mp->find(st);
     if (pss == mp->end()) return;
 
-    Skills *sks = &(pss->second);
+    sks = &(pss->second);
     if (sks->empty()) return;
 
     const skill_entry_t *psk;

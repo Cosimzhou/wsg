@@ -13,15 +13,16 @@
 WSG_BEGIN
 
 typedef struct  {
+    void *buff;
     int num_card;
-    card_id_t *cards;
     int num_player;
+    card_id_t *cards;
     player_index_t *players;
 } operation_param_t;
 
 typedef struct {
     operation_param_t params;
-    char *msg;
+    const char *msg;
 } hint_param_t;
 
 typedef struct {
@@ -30,14 +31,16 @@ typedef struct {
 } action_param_t;
 
 class interact {
+public:
     int timeout;
     
-    bool hintAct(void *);
-    void getAction(void *);
+    bool hintAct(const hint_param_t *);
+    void getAction(operation_param_t *);
 };
 
 extern void
 wsg_operation_param_fill_with_buffer(void *, operation_param_t *);
-
+extern void
+wsg_operation_param_fill_to_buffer(void **buffer, operation_param_t *opt);
 WSG_END
 #endif /* defined(__WSG__INTERACT__H__) */

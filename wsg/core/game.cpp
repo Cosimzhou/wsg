@@ -124,7 +124,14 @@ void Game::play() {
 }
 
 bool Game::hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const {
-    cout<<"will you act skill "<<psk->name<<"?"<<endl;
+    hint_param_t hpt;
+    stringstream sstr;
+    sstr<<"will you act skill "<<psk->name<<"?"<<endl;
+    hpt.msg = sstr.str().c_str();
+    cout<<hpt.msg<<ends;
+    
+    bool ret = players[plr]->plyia->hintAct(&hpt);
+    
     return false;
 }
 

@@ -337,4 +337,12 @@ int FSM::blood_change(FSM *self) {
 
 
 
+int FSM::smart_play(FSM *self) {
+    return 0;
+}
+int FSM::smart_act_on(FSM *self) {
+    return 0;
+}
+
+
 WSG_END

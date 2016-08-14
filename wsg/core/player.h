@@ -39,6 +39,7 @@ public:
     
     const hero_model_t *heroModel[2];
     
+    interact *plyia;
     
     
     
