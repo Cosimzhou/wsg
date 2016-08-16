@@ -14,12 +14,12 @@ WSG_BEGIN
 typedef int player_index_t;
 typedef int card_id_t;
 
-#ifdef WSG_USING_CHAR_AS_ENUM
-typedef     unsigned char       card_pattern_t;
-typedef     unsigned char       card_point_t;
-typedef     unsigned char       property_type_t;
-typedef     unsigned char       card_type_t;
-#endif // WSG_USING_CHAR_AS_ENUM
+#   ifdef WSG_USING_CHAR_AS_ENUM
+typedef unsigned char       card_pattern_t;
+typedef unsigned char       card_point_t;
+typedef unsigned char       property_type_t;
+typedef unsigned char       card_type_t;
+#   endif // WSG_USING_CHAR_AS_ENUM
 
 
 typedef list<card_id_t> Cards;

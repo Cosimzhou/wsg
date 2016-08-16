@@ -9,54 +9,70 @@
 #ifdef  __WSG__DECLARE__FSM__STATUS__H__
 #   ifndef __WSG__FSM__STATUS__H__
 #       define __WSG__FSM__STATUS__H__
-#       define DEF_PHASE(p)                                                     \
-static int p(FSM*);                                                             \
-static int p##_after(FSM*){return 0;}
 
-DEF_PHASE(game_begin);
-DEF_PHASE(game_play);
-DEF_PHASE(game_over);
-
-DEF_PHASE(round_begin);
-DEF_PHASE(round_judge);
-DEF_PHASE(round_draw);
-DEF_PHASE(round_play);
-DEF_PHASE(round_discard);
-DEF_PHASE(round_over);
-
-DEF_PHASE(discard);
-
-DEF_PHASE(distance_calc);
-DEF_PHASE(distance_to);
-DEF_PHASE(distance_from);
-
-DEF_PHASE(card_color);
-DEF_PHASE(card_pattern);
-DEF_PHASE(card_dotnum);
-
-DEF_PHASE(card_uplimit);
+FSMB(game)  //
+R(game_begin)
+R(game_play)
+R(game_over)
+FSME(game)
 
 
-DEF_PHASE(hurt_form);
-DEF_PHASE(hurt_give);
-
-DEF_PHASE(hurt_receive);
-DEF_PHASE(hurted);
-
-DEF_PHASE(blood_change);
-
-DEF_PHASE(a);
-
-DEF_PHASE(smart_play);
-DEF_PHASE(smart_act_on);
-//DEF_PHASE(smart_act_on);
+FSMB(round)
+R(round_begin)
+R(round_judge)
+R(round_draw)
+R(round_play)
+R(round_discard)
+R(round_over)
+FSME(round)
 
 
+FSMB(distance)
+R(distance_calc)
+R(distance_from)
+R(distance_to)
+FSME(distance)
 
 
+FSMB(hurt_give)
+R(hurt_form)
+R(hurt_give)
+FSME(hurt_give)
 
 
+FSMB(hurted)
+R(hurt_receive)
+R(hurted)
+FSME(hurted)
 
-#       undef DEF_PHASE
+
+FSMB(blood_change)
+R(blood_change)
+FSME(blood_change)
+
+
+FSMB(card_uplimit)
+R(card_uplimit)
+FSME(card_uplimit)
+
+
+FSMB(card_pattern)
+R(card_pattern)
+FSME(card_pattern)
+
+
+FSMB(discard)
+R(discard)
+FSME(discard)
+
+
+FSMB(smart)     //
+R(smart_show)
+R(smart_act_on)
+FSME(smart)
+
+#       undef FSMB
+#       undef FSME
+#       undef R
 #   endif /* __WSG__FSM__STATUS__H__ */
 #endif /* defined(__WSG__DECLARE__FSM__STATUS__H__) */

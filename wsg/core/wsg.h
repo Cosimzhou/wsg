@@ -9,6 +9,7 @@
 #ifndef __WSG__H__
 #define __WSG__H__
 
+
 #define WSG_USING_CHAR_AS_ENUM
 #define WSG_USING_WSG_NAMESPACE
 #ifdef WSG_USING_WSG_NAMESPACE
@@ -25,6 +26,7 @@
 #define __xbig__(x)          ({__typeof__(x) t = x;                             \
                                __xbit##sizeof(x)##__((unsigned char*)&t);       \
                                t})
+#define __xbit1__(b)          (b)
 #define __xbit2__(b)          __swap__((b)[0],(b)[1])
 #define __xbit4__(b)          __swap__((b)[0],(b)[3]),__swap__((b)[1],(b)[2])
 #define __xbit8__(b)          __swap__((b)[0],(b)[7]),__swap__((b)[1],(b)[6]),  \
@@ -63,14 +65,7 @@
 #define __lenof__(arr)          (sizeof(arr)/sizeof(*arr))
 #define __swap__(x,y)           do{__typeof__(x) t=x;x=y;y=t;}while(0)
 #define __offset__(cls,var)     ((long)&(((cls*)0)->var))
-//#define __size__
-
-
-
-
-
-
-
+#define __cntnr__(cls,var,addr) ((cls*)((addr)-__offset__(cls, var)))
 
 #include <map>
 #include <set>
@@ -84,9 +79,6 @@
 #include <algorithm>
 using namespace std;
 
-
-
-
 #include "type.h"
 #include "algorithm.h"
 #include "card.h"
@@ -97,8 +89,5 @@ using namespace std;
 #include "player.h"
 #include "wound.hpp"
 #include "game.hpp"
-
-
-
 
 #endif /* defined(__WSG__H__) */

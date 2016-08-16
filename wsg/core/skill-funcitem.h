@@ -11,7 +11,7 @@
 #   ifndef __WSG__SKILL__LIST__H__
 
 #       define N                                JNL_NONE
-#       define F(x,c)                           {FSM::x,c}
+#       define F(x,c)                           {x,c}
 #       define FS(x)                            F(x,JNT_SELF)
 #       define FZ                               F(round_play,JNT_SELF)
 #       define DSKFZ(id)                        DSKE(id,FZ)

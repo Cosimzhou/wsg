@@ -35,6 +35,7 @@ public:
     int timeout;
     
     bool hintAct(const hint_param_t *);
+    void hintActAsync(const hint_param_t *);
     void getAction(operation_param_t *);
 };
 

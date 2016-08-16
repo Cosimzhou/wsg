@@ -59,18 +59,21 @@ public:
     int param_value(fsm_param_type_t) const;
     
     friend class Game;
-protected:
+//protected:
     FSM(const fsm_status_t *fsm_course, Game *game, player_index_t plr);
-    
-//    Player* curPlayer() const;
-
     void triggerSkill(const fsm_status_t st);
 
-public:
-#define __WSG__DECLARE__FSM__STATUS__H__
-#   include "fsm-status.h"
-#undef __WSG__DECLARE__FSM__STATUS__H__
+//public:
 };
 
+#define __WSG__DECLARE__FSM__STATUS__H__
+#   undef __WSG__FSM__STATUS__H__
+#   define FSMB(c)
+#   define FSME(c)
+#   define R(p)                                                                 \
+extern int p(FSM*);                                                             \
+extern int p##_after(FSM*);
+#   include "fsm-status.h"
+#undef __WSG__DECLARE__FSM__STATUS__H__
 WSG_END
 #endif /* defined(__WSG__STATUS__HPP__) */

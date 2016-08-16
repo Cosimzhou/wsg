@@ -63,4 +63,15 @@ wsg_operation_param_free(operation_param_t *opt) {
     if (opt->players) delete opt->players;
     opt->cards = opt->players = NULL;
 }
+
+bool interact::hintAct(const hint_param_t *) {
+    return true;
+}
+void interact::hintActAsync(const hint_param_t *) {
+    
+}
+void interact::getAction(operation_param_t *) {
+
+}
+
 WSG_END
