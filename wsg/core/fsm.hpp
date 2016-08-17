@@ -18,19 +18,20 @@ class Player;
 class FSM;
 
 typedef int (*fsm_status_t)(FSM*);
-extern const fsm_status_t fsm_game_courses[];
 #define NULL_PHASE                      ((fsm_status_t)0)
-
+#define SCRS(c)                         fsm_##c##_courses
 
 
 typedef enum {
-    FP_distance,
-    FP_draw_card_num,
-    FP_discard_num,
-    FP_target_player,
-    FP_card,
-    FP_card_pattern,
-    FP_delta_blood,
+    FP_distance,                //
+    FP_draw_card_num,           // round draw card number
+    FP_discard_num,             //
+    FP_target_player,           //
+    FP_card,                    //
+    FP_card_pattern,            //
+    FP_delta_blood,             //
+    FP_round_draw_skip,         //
+    FP_round_play_skip,         //
 } fsm_param_type_t;
 
 typedef map<fsm_param_type_t, int> fsm_param_t;
@@ -63,12 +64,11 @@ public:
     FSM(const fsm_status_t *fsm_course, Game *game, player_index_t plr);
     void triggerSkill(const fsm_status_t st);
 
-//public:
 };
 
 #define __WSG__DECLARE__FSM__STATUS__H__
 #   undef __WSG__FSM__STATUS__H__
-#   define FSMB(c)
+#   define FSMB(c)  extern const fsm_status_t SCRS(c)[];
 #   define FSME(c)
 #   define R(p)                                                                 \
 extern int p(FSM*);                                                             \

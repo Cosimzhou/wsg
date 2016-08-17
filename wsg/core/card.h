@@ -263,5 +263,5 @@ private:
 extern void
 wsg_card_test_show();
     
-WSG_END;
+WSG_END
 #endif /* defined(__WSG__CARD__H__) */

@@ -16,21 +16,18 @@ WSG_BEGIN
  *******************************************************************************/
 
 #ifdef DEBUG
-#   define SHOW_ME()    do {                                                    \
-;                           for(int _i=0;_i<self->_game->fsm.size()-1;++_i) {   \
-;                               cout<<"  ";                                     \
-;                           }                                                   \
-;                           cout<<__func__<<endl;                               \
-;                       } while(0)
+#   define SHOW_ME()    cout<<SPACE(self->_game->fsm.size()*2-2)<<__func__<<endl
 #else // DEBUG
 #   define SHOW_ME()
 #endif //DEBUG
+
+#define DEF(f)          int f(FSM *self) { int ret = 0; SHOW_ME();
+#define ENDEF           return ret;}
 
 #define FSM_NEW(p)      FSM *fsm = new FSM(SCRS(p), self->_game, self->_obj)
 #define FSM_NEW_RD(p,r) FSM *fsm = new FSM(SCRS(p), self->_game, r)
 #define FSM_SEND()      self->_game->perform(fsm)
 #define CURPLAYER       self->_game->players[self->_obj]
-#define SCRS(c)         fsm_##c##_courses
 
 /*******************************************************************************
  *
@@ -41,7 +38,7 @@ WSG_BEGIN
 // declare skill array
 #define __WSG__DECLARE__FSM__STATUS__H__
 #   undef __WSG__FSM__STATUS__H__
-#   define FSMB(c)                                                             \
+#   define FSMB(c)                                                              \
 const fsm_status_t SCRS(c)[] = {
 #   define FSME(c)              NULL_PHASE};
 #   define R(p)                 p, p##_after,
@@ -59,72 +56,37 @@ const fsm_status_t SCRS(c)[] = {
 
 
 
-int Game::getDistanceBetween(player_index_t from, player_index_t to) {
-    if (from == to) return 0;
-
-    FSM *fsm = new FSM(fsm_distance_courses, this, from);
-    fsm->params[FP_target_player] = to;
-    perform(fsm);
-
-    return fsm->iRet;
-}
-
-card_pattern_t Game::getCardPattern(player_index_t obj, card_id_t card) {
-    if (obj < 0) return (card_pattern_t)0;
-
-    const fsm_status_t fsa[] = {card_pattern, NULL_PHASE};
-    FSM *fsm = new FSM(fsa, this, obj);
-    fsm->params[FP_card] = card;
-    fsm->params[FP_card_pattern] = POKER_PAT(card);
-    perform(fsm);
-
-    return (card_pattern_t)fsm->params[FP_card_pattern];
-}
-
-card_point_t Game::getCardPointNum(player_index_t obj, card_id_t card) {
-    return (card_point_t)0;
-}
-
-void Game::changePlayerBlood(player_index_t obj, int delta) {
-    FSM *fsm = new FSM(SCRS(blood_change), this, obj);
-    fsm->params[FP_delta_blood] = delta;
-    perform(fsm);
-}
-
-
 /*******************************************************************************
  *
  *  all fsm_status_t implemented below
  *
  *******************************************************************************/
 #pragma mark - game
-int game_begin(FSM *self) {
-    SHOW_ME();
+DEF(game_begin) {
     for (int i = 0; i < self->_game->players.size(); ++i) {
         for (int n = 0; n < 4; ++n) {
             card_id_t cid = self->_game->draw_card();
             self->_game->players[i]->hand_cards.push_back(cid);
         }
     }
-    return 0;
-}
-int game_play(FSM *self) {
-    SHOW_ME();
+} ENDEF;
+
+DEF(game_play) {
     while (true) {
         for (int i = 0; i < self->_game->players.size(); ++i) {
             FSM_NEW_RD(round, i);
             FSM_SEND();
         }
     }
-    return 0;
-}
-int game_over(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+
+    
+} ENDEF;
+
+DEF(game_over) {
+} ENDEF;
 
 #pragma mark - round
-int round_begin(FSM *self) {
+DEF(round_begin) {
     cout<<"  * No."<<self->_obj+1<<" ***"<<CURPLAYER->heroModel[0]->name<<"****"<<endl<<"    ";
     for (auto &x: CURPLAYER->hand_cards) {
         cout<< Card::cardinfo(x)<<" ";
@@ -135,20 +97,23 @@ int round_begin(FSM *self) {
     self->params[FP_draw_card_num] = 2;
     
     return 0;
-}
-int round_judge(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
-int round_draw(FSM *self) {
-    SHOW_ME();
+} ENDEF;
+
+DEF(round_judge) {
+} ENDEF;
+
+DEF(round_draw) {
+    if (self->params[FP_round_draw_skip])
+        return 0;
+    
     int dcn = self->params[FP_draw_card_num];
     self->_game->player_draw_cards(self->_obj, dcn);
-    return 0;
-}
-int round_play(FSM *self) {
-    SHOW_ME();
+} ENDEF;
 
+DEF(round_play) {
+    if (self->params[FP_round_play_skip])
+        return 0;
+    
     int dist = self->_game->getDistanceBetween(self->_obj, 0);
     cout<<"    dist:"<<dist<<endl;
     cout<<"    ";
@@ -160,11 +125,9 @@ int round_play(FSM *self) {
         }
     }
     cout<<endl;
-    
-    return 0;
-}
-int round_discard(FSM *self) {
-    SHOW_ME();
+} ENDEF;
+
+DEF(round_discard) {
     int cardlim = 0;
     {
         FSM_NEW(card_uplimit);
@@ -178,24 +141,18 @@ int round_discard(FSM *self) {
             FSM_SEND();
         }
     }
-    return 0;
-}
-int round_over(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+} ENDEF;
+
+DEF(round_over) {
+} ENDEF;
 
 #pragma mark - card_uplimit
-int card_uplimit(FSM *self) {
-    SHOW_ME();
+DEF(card_uplimit) {
     self->iRet = CURPLAYER->blood;
-    return 0;
-}
+} ENDEF;
 
 #pragma mark - discard
-int discard(FSM *self) {
-    SHOW_ME();
-    
+DEF(discard) {
     int dcn = self->param_value(FP_discard_num);
     while (dcn-- > 0) {
         if (CURPLAYER->hand_cards.empty())
@@ -205,27 +162,18 @@ int discard(FSM *self) {
         CURPLAYER->hand_cards.pop_front();
         self->_game->discard_heap.push_back(cid);
     }
-    
-    return 0;
-}
+} ENDEF;
 
 #pragma mark - card_cpn
-int card_pattern(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
-int card_color(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
-int card_dotnum(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+DEF(card_pattern) {
+} ENDEF;
+DEF(card_color) {
+} ENDEF;
+DEF(card_dotnum) {
+} ENDEF;
 
 #pragma mark - distance
-int distance_calc(FSM *self) {
-    SHOW_ME();
+DEF(distance_calc) {
     int i, p, plrcnt = (int)self->_game->players.size();
     int d1 = 0, d2 = 0, plr = self->params[FP_target_player];
 
@@ -246,58 +194,45 @@ int distance_calc(FSM *self) {
         if (plr == p) break;
     }
 
-    self->iRet = d1<d2? d1: d2;
-
-    return 0;
-}
+    self->iRet = min(d1, d2);
+} ENDEF;
 
 
-int distance_from(FSM *self) {
-    SHOW_ME();
+DEF(distance_from) {
     __swap__(self->_obj, self->params[FP_target_player]);
-    return 0;
-}
+} ENDEF;
 
-int distance_to(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+DEF(distance_to) {
+} ENDEF;
 
 #pragma mark - hurt_give
-int hurt_form(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
-int hurt_give(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+DEF(hurt_form) {
+} ENDEF;
+DEF(hurt_give) {
+} ENDEF;
 
 #pragma mark - hurted
-int hurt_receive(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
-int hurted(FSM *self) {
-    SHOW_ME();
-    return 0;
-}
+DEF(hurt_receive) {
+} ENDEF;
+DEF(hurted) {
+} ENDEF;
 
 #pragma mark - blood_chang
-int blood_change(FSM *self) {
-    SHOW_ME();
+DEF(blood_change) {
     CURPLAYER->blood += self->params[FP_delta_blood];
-    return 0;
-}
+} ENDEF;
 
 
+#pragma mark - smart
+DEF(smart_play) {
+} ENDEF;
+DEF(smart_act_on) {
+} ENDEF;
+DEF(smart_show) {
+} ENDEF;
 
-int smart_play(FSM *self) {
-    return 0;
-}
-int smart_act_on(FSM *self) {
-    return 0;
-}
+#pragma mark - EXAMPLE FUNCTION
+DEF(a) {
 
-
+} ENDEF;
 WSG_END

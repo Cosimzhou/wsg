@@ -2,3 +2,7 @@
 **/xcsharedata/
 **/xcuserdata/
 **/build/
+**/out/
+*.o
+*.a
+

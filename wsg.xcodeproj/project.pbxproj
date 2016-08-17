@@ -17,6 +17,7 @@
 		796E794F1CD0CAE800E8C9F1 /* fsm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E794D1CD0CAE800E8C9F1 /* fsm.cpp */; };
 		796E79521CD1A78E00E8C9F1 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79501CD1A78E00E8C9F1 /* game.cpp */; };
 		796E79551CD1BDAF00E8C9F1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796E79531CD1BDAF00E8C9F1 /* player.cpp */; };
+		79F988561D643C6F00642873 /* wsg-util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 793BC7721D6433DE00D78025 /* wsg-util.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		7927B77C1CED976E00AD593B /* fsm-status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fsm-status.h"; sourceTree = "<group>"; };
 		7927B77D1CED99C600AD593B /* fsm-status.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = "fsm-status.cpp"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		793BC7721D6433DE00D78025 /* wsg-util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "wsg-util.cpp"; sourceTree = "<group>"; };
+		793BC7731D6433DE00D78025 /* wsg-util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wsg-util.h"; sourceTree = "<group>"; };
 		794B781B1CEC5F5900A0E579 /* skill-funcitem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "skill-funcitem.c"; sourceTree = "<group>"; };
 		79582A211D2370AF00BA4FEB /* skill-funcitem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "skill-funcitem.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		79582A221D23C51300BA4FEB /* interact.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interact.cpp; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				7927B77D1CED99C600AD593B /* fsm-status.cpp */,
 				7927B77C1CED976E00AD593B /* fsm-status.h */,
 				796E79431CD0C35400E8C9F1 /* wsg.h */,
+				793BC7721D6433DE00D78025 /* wsg-util.cpp */,
+				793BC7731D6433DE00D78025 /* wsg-util.h */,
 				79582A281D2BA29900BA4FEB /* algorithm.h */,
 				79582A2A1D2CF71600BA4FEB /* type.h */,
 				79582A221D23C51300BA4FEB /* interact.cpp */,
@@ -183,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F988561D643C6F00642873 /* wsg-util.cpp in Sources */,
 				796E79191CD0BB3C00E8C9F1 /* main.cpp in Sources */,
 				796E79491CD0C81900E8C9F1 /* hero.cpp in Sources */,
 				796E79461CD0C54500E8C9F1 /* card.cpp in Sources */,

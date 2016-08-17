@@ -67,6 +67,8 @@
 #define __offset__(cls,var)     ((long)&(((cls*)0)->var))
 #define __cntnr__(cls,var,addr) ((cls*)((addr)-__offset__(cls, var)))
 
+
+
 #include <map>
 #include <set>
 #include <list>
@@ -79,6 +81,7 @@
 #include <algorithm>
 using namespace std;
 
+#include "wsg-util.h"
 #include "type.h"
 #include "algorithm.h"
 #include "card.h"

@@ -8,7 +8,7 @@
 
 //#include <stdlib.h>
 
-#include "wsg.h"
+#include "core/wsg.h"
 
 WSG_USING;
 

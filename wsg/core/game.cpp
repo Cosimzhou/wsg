@@ -132,7 +132,42 @@ bool Game::hintTriggerSkill(player_index_t plr, const skill_entry_t *psk) const 
     
     bool ret = players[plr]->plyia->hintAct(&hpt);
     
-    return false;
+    return ret;
+}
+
+
+
+
+#pragma mark - game course function
+int Game::getDistanceBetween(player_index_t from, player_index_t to) {
+    if (from == to) return 0;
+    
+    FSM *fsm = new FSM(SCRS(distance), this, from);
+    fsm->params[FP_target_player] = to;
+    perform(fsm);
+    
+    return fsm->iRet;
+}
+
+card_pattern_t Game::getCardPattern(player_index_t obj, card_id_t card) {
+    if (obj < 0) return (card_pattern_t)0;
+    
+    FSM *fsm = new FSM(SCRS(card_pattern), this, obj);
+    fsm->params[FP_card] = card;
+    fsm->params[FP_card_pattern] = POKER_PAT(card);
+    perform(fsm);
+    
+    return (card_pattern_t)fsm->params[FP_card_pattern];
+}
+
+card_point_t Game::getCardPointNum(player_index_t obj, card_id_t card) {
+    return (card_point_t)0;
+}
+
+void Game::changePlayerBlood(player_index_t obj, int delta) {
+    FSM *fsm = new FSM(SCRS(blood_change), this, obj);
+    fsm->params[FP_delta_blood] = delta;
+    perform(fsm);
 }
 
 
