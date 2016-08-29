@@ -10,10 +10,8 @@
 
 WSG_BEGIN
 
-
-
-#define HMDEF(id,name,sex,bld,cnt,fm,ss,pk,sk,...)                              \
-{id,name,sex,bld,SL_##cnt,sk,fm,ss,pk,#id,__VA_ARGS__}
+#define HMDEF(id, name, sex, bld, cnt, fm, ss, pk, sk,...)                      \
+{id, name, sex, bld, SL_##cnt, sk, fm, ss, pk, #id, ##__VA_ARGS__}
 #define SKS(...)                {__VA_ARGS__}
 #define M                       true
 #define F                       false
@@ -21,8 +19,8 @@ WSG_BEGIN
 const hero_model_t wsg_hero_model_lib[] = {
 //{HERO_NONE,},
 // qun xiong
-HMDEF(QUN001, "华佗", M, 3, QUN, "神医", "乱世名医", FX_NORMAL, SKS(JN_JIJIU, JN_QINGNANG),0),
-HMDEF(QUN002, "吕布", M, 4, QUN, "武的化身", "飞将", FX_NORMAL, SKS(JN_WUSHUANG),0),
+HMDEF(QUN001, "华佗", M, 3, QUN, "神医", "乱世名医", FX_NORMAL, SKS(JN_JIJIU, JN_QINGNANG), 0),
+HMDEF(QUN002, "吕布", M, 4, QUN, "武的化身", "飞将", FX_NORMAL, SKS(JN_WUSHUANG), 0),
 HMDEF(QUN003, "貂蝉", F, 3, QUN, "绝世的舞姬", "倾国倾城", FX_NORMAL, SKS(JN_LIJIAN, JN_BIYUE), 0),
 HMDEF(QUN004, "袁绍", M, 4, QUN, "高贵的名门", "乱箭肃敌", FX_FIRE, SKS(JN_LUANJI, JN_XUEYI), 0),
 HMDEF(QUN005, "颜良&文丑", M, 4, QUN, "虎狼兄弟", "其利断金", FX_FIRE, SKS(JN_SHUANGXIOANG), 0,1),

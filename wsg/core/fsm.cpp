@@ -35,9 +35,10 @@ bool FSM::operator++() {
         
         // TODO: is any skill could trigger
         this->triggerSkill(st);
-
-        if (st(this))
-            return false;
+        bool stop = st(this);
+        this->triggerSkill(st, true);
+        if (stop) return false;
+        
         this->pop();
     }
     
@@ -45,7 +46,7 @@ bool FSM::operator++() {
 }
 
 
-void FSM::triggerSkill(const fsm_status_t st) {
+void FSM::triggerSkill(const fsm_status_t st, bool after) {
     if (_obj < 0 || _obj >= _game->players.size())
         return;
     

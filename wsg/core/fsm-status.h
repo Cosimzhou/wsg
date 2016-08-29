@@ -74,6 +74,12 @@ R(smart_play)
 FSME(smart)
 
 //
+//FSMB(kill)
+//R(kill_select_card)
+//R(kill_select_object)
+//FSME(kill)
+
+//
 FSMB(selfe)
 R(a)
 FSME(selfe)

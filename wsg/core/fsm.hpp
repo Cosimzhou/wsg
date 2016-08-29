@@ -30,8 +30,8 @@ typedef enum {
     FP_card,                    //
     FP_card_pattern,            //
     FP_delta_blood,             //
-    FP_round_draw_skip,         //
-    FP_round_play_skip,         //
+    FP_round_draw_skip,         // 跳过摸牌阶段
+    FP_round_play_skip,         // 跳过出牌阶段
 } fsm_param_type_t;
 
 typedef map<fsm_param_type_t, int> fsm_param_t;
@@ -60,10 +60,10 @@ public:
     int param_value(fsm_param_type_t) const;
     
     friend class Game;
+    
 //protected:
     FSM(const fsm_status_t *fsm_course, Game *game, player_index_t plr);
-    void triggerSkill(const fsm_status_t st);
-
+    void triggerSkill(const fsm_status_t st, bool after=false);
 };
 
 #define __WSG__DECLARE__FSM__STATUS__H__
